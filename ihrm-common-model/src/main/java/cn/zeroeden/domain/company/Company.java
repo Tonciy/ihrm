@@ -1,25 +1,22 @@
 package cn.zeroeden.domain.company;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "co_company")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("co_company")
 public class Company implements Serializable {
     private static final long serialVersionUID = 594829320797158219L;
 
-    @Id
     private String id;
     /**
      * 公司名称
