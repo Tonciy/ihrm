@@ -15,6 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/company")
+@CrossOrigin
 public class CompanyController {
 
     @Autowired
@@ -26,20 +27,16 @@ public class CompanyController {
     @PostMapping
     public Result add(@RequestBody Company company) throws Exception {
         companyService.add(company);
-        return new Result(ResultCode.SUCCESS);
+        return Result.SUCCESS();
     }
     /**
      * 根据id更新企业信息
      */
     @PutMapping("/{id}")
-    public Result update(@PathVariable(name = "id") String id, @RequestBody Company
-            company) throws Exception {
-        Company one = companyService.getById(id);
-        one.setName(company.getName());
-        one.setRemarks(company.getRemarks());
-        one.setState(company.getState());
-        one.setAuditState(company.getAuditState());
-        companyService.updateById(one);
+    public Result update(@PathVariable(name = "id") String id,
+                         @RequestBody Company company) throws Exception {
+        company.setId(id);
+        companyService.updateById(company);
         return Result.SUCCESS();
     }
     /**
@@ -56,7 +53,7 @@ public class CompanyController {
    @GetMapping("/{id}")
     public Result findById(@PathVariable(name = "id") String id) throws Exception {
         Company company = companyService.getById(id);
-        return new Result(ResultCode.SUCCESS);
+        return new Result(ResultCode.SUCCESS, company);
     }
     /**
      * 获取企业列表
@@ -64,6 +61,6 @@ public class CompanyController {
    @GetMapping
     public Result findAll() throws Exception {
         List<Company> companyList = companyService.list();
-        return new Result(ResultCode.SUCCESS);
+        return new Result(ResultCode.SUCCESS,companyList);
     }
 }

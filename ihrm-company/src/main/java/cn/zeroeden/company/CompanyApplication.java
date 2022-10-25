@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
  * @create: 2022-10-14 16:47
  **/
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "cn.zeroeden")
 @EntityScan(value = "cn.zeroeden.domain.company")
 public class CompanyApplication {
 
