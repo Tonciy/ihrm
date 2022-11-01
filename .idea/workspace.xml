@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="aa">
-      <change afterPath="$PROJECT_DIR$/ihrm-system/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/SystemApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common-model/ihrm-common-model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/ihrm-common-model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/ihrm-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/ihrm-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-company/ihrm-company.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/ihrm-company.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-parent.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-system/src/main/resources",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-common-model/src/main/java/cn/zeroeden/domain/system",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -92,6 +86,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\system" />
       <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\resources" />
       <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\company" />
       <recent name="D:\Code\ihrm-parent" />
@@ -158,7 +153,7 @@
       <workItem from="1667108878944" duration="848000" />
       <workItem from="1667114859733" duration="3126000" />
       <workItem from="1667223102586" duration="1170000" />
-      <workItem from="1667304278110" duration="900000" />
+      <workItem from="1667304278110" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -195,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667117310194</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="新增system模块">
+      <created>1667306519721</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667306519721</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +219,8 @@
     <MESSAGE value="SpringData改为MP" />
     <MESSAGE value="aa" />
     <MESSAGE value="部门实体CRUD" />
-    <option name="LAST_COMMIT_MESSAGE" value="部门实体CRUD" />
+    <MESSAGE value="新增system模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增system模块" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
