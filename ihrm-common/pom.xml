@@ -11,5 +11,12 @@
 
     <artifactId>ihrm-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.zeroeden</groupId>
+            <artifactId>ihrm-common-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

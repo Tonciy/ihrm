@@ -5,11 +5,13 @@ import cn.zeroeden.domain.system.User;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.entity.ResultCode;
+import cn.zeroeden.entity.UserResult;
 import cn.zeroeden.system.service.UserService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,7 +57,8 @@ public class UserController extends BaseController {
     @GetMapping("/user/{id}")
     public Result findById(@PathVariable String id){
         User user = userService.findById(id);
-        return new Result(ResultCode.SUCCESS, user);
+        UserResult userResult = new UserResult(user);
+        return new Result(ResultCode.SUCCESS, userResult);
     }
 
     /**
@@ -81,5 +84,18 @@ public class UserController extends BaseController {
     public Result deleteById(@PathVariable String id){
         userService.deleteById(id);
         return new Result(ResultCode.SUCCESS);
+    }
+
+    /**
+     * 为用户分配角色
+     * @param map  装载了用户id和待分配的角色ids
+     * @return
+     */
+    @PutMapping("/user/assignRoles")
+    public Result assignRoles(@RequestBody Map<String, Object> map){
+        String id  = (String)map.get("id");
+        List<String> roleIds = (List<String>)map.get("ids");
+        userService.assignRoles(id, roleIds);
+        return Result.SUCCESS();
     }
 }

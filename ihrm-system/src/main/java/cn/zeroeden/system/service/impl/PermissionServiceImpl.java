@@ -169,4 +169,13 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission
                 throw new Exception();
         }
     }
+
+    @Override
+    public List<Permission> findByTypeAndPid(Integer type, String pid) {
+        LambdaQueryWrapper<Permission> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(!StringUtils.isEmpty(pid),Permission::getPid, pid);
+        wrapper.eq(type != null,Permission::getType, type);
+        List<Permission> list = permissionDao.selectList(wrapper);
+        return list;
+    }
 }

@@ -8,31 +8,47 @@ import java.util.Map;
 
 public interface PermissionService extends IService<Permission> {
     /**
-     * 保存部门
-     * @param map
+     * 保存权限
+     *
+     * @param map 装载了权限信息的载体
      */
-    public void add(Map<String,Object> map) throws Exception;
+    void add(Map<String, Object> map) throws Exception;
 
     /**
-     * 更新部门
-     * @param map
+     * 更新权限
+     *
+     * @param map 装载了权限信息的载体
      */
-    public void update(Map<String, Object> map) throws Exception;
+    void update(Map<String, Object> map) throws Exception;
 
     /**
-     * 根据id查询部门
-     * @param id
+     * 根据id查询权限
+     *
+     * @param id 权限id
+     * @return 具体权限信息
      */
-    public Map<String, Object> findById(String id) throws Exception;
+    Map<String, Object> findById(String id) throws Exception;
 
     /**
-     * 查询所有部门信息
+     * 查询所有权限信息
+     * @param map 查询条件
+     * @return 权限信息集合
      */
-    public List<Permission> findAll(Map<String, Object> map);
+    List<Permission> findAll(Map<String, Object> map);
 
     /**
-     * 根据id删除部门
-     * @param id
+     * 根据id删除权限
+     *
+     * @param id 权限id
      */
-    public void  deleteById(String id) throws Exception;
+    void deleteById(String id) throws Exception;
+
+    /**
+     * 根据资源类型和pid查询权限
+     *
+     * @param type 资源类型
+     * @param pid  资源父id
+     * @return 具体权限信息
+     */
+    List<Permission> findByTypeAndPid(Integer type, String pid);
 }

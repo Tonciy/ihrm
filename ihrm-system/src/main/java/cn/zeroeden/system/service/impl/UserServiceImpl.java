@@ -1,7 +1,9 @@
 package cn.zeroeden.system.service.impl;
 
 import cn.zeroeden.domain.system.User;
+import cn.zeroeden.domain.system.UserRole;
 import cn.zeroeden.system.dao.UserDao;
+import cn.zeroeden.system.dao.UserRoleDao;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.IdWorker;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +29,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     private UserDao userDao;
     @Autowired
     private IdWorker idWorker;
+
+    @Autowired
+    private UserRoleDao userRoleDao;
     @Override
     public void add(User user) {
         // 设置默认值
@@ -50,6 +56,15 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public User findById(String id) {
         return userDao.selectById(id);
+    }
+
+    @Override
+    public void assignRoles(String id, List<String> roleIds) {
+        // 直接往中间表插入数据即可
+        for (String roleId : roleIds) {
+            UserRole userRole = new UserRole(roleId, id);
+            userRoleDao.insert(userRole);
+        }
     }
 
     /**

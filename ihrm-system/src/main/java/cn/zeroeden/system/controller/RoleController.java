@@ -5,10 +5,14 @@ import cn.zeroeden.domain.system.Role;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.entity.ResultCode;
+import cn.zeroeden.entity.RoleResult;
 import cn.zeroeden.system.service.RoleService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author: Zero
@@ -26,7 +30,7 @@ public class RoleController extends BaseController {
     @PostMapping("/role")
     public Result add(@RequestBody Role role) throws Exception {
         role.setCompanyId(companyId);
-        roleService.save(role);
+        roleService.add(role);
         return Result.SUCCESS();
     }
 
@@ -51,7 +55,8 @@ public class RoleController extends BaseController {
     @GetMapping("/role/{id}")
     public Result findById(@PathVariable(name = "id") String id) throws Exception {
         Role role = roleService.findById(id);
-        return new Result(ResultCode.SUCCESS, role);
+        RoleResult roleResult = new RoleResult(role);
+        return new Result(ResultCode.SUCCESS, roleResult);
     }
 
     /**
@@ -64,5 +69,28 @@ public class RoleController extends BaseController {
         PageResult<Role> pr = new
                 PageResult(searchPage.getTotal(), searchPage.getRecords());
         return new Result(ResultCode.SUCCESS, pr);
+    }
+
+    /**
+     * 为角色赋予权限
+     * @param map 装载了角色roleId 和 权限集合permissionIds
+     * @return
+     */
+    @PutMapping("/role/assignPrem")
+    public Result save(@RequestBody Map<String, Object> map){
+        String roleId = (String)map.get("id");
+        List<String> permissionIds = (List<String>)map.get("permIds");
+        roleService.assignRoles(roleId, permissionIds);
+        return Result.SUCCESS();
+    }
+
+    /**
+     * 查询所有角色信息
+     * @return 角色集合
+     */
+    @GetMapping("/role/list")
+    public Result findAll(){
+        List<Role> list = roleService.findAll();
+        return Result.SUCCESS(list);
     }
 }

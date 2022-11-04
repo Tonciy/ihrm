@@ -1,8 +1,5 @@
 package cn.zeroeden.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -52,6 +49,9 @@ public class Result {
 
     public static Result SUCCESS() {
         return new Result(ResultCode.SUCCESS);
+    }
+    public static Result SUCCESS(Object data) {
+        return new Result(ResultCode.SUCCESS, data);
     }
 
     public static Result ERROR() {
