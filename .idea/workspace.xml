@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/PermissionPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/dao/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/service/impl/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/service/impl/CompanyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/service/CompanyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/service/CompanyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/service/impl/CompanyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/service/impl/CompanyServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/SystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/SystemApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +73,6 @@
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -81,7 +89,8 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "fileTemplates",
-    "spring.configuration.checksum": "4e91d5a568334b7a95a994a7441e6471"
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "8af3e92c8a0ba264f73bca3bbe3041c6"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -92,7 +101,7 @@
       <recent name="D:\Code\ihrm-parent" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CompanyApplication">
+  <component name="RunManager" selected="Spring Boot.SystemApplication">
     <configuration name="CompanyTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ihrm-company" />
       <extension name="coverage">
@@ -122,8 +131,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.system.SystemApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zeroeden.system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.SystemApplication" />
         <item itemvalue="Spring Boot.CompanyApplication" />
         <item itemvalue="JUnit.CompanyTest.test" />
       </list>
@@ -154,6 +177,10 @@
       <workItem from="1667114859733" duration="3126000" />
       <workItem from="1667223102586" duration="1170000" />
       <workItem from="1667304278110" duration="1482000" />
+      <workItem from="1667307095330" duration="240000" />
+      <workItem from="1667392185335" duration="154000" />
+      <workItem from="1667396782678" duration="2931000" />
+      <workItem from="1667541960960" duration="4281000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -197,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667306519721</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[system] 新增RBAC实体类">
+      <created>1667307123161</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667307123161</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +254,8 @@
     <MESSAGE value="aa" />
     <MESSAGE value="部门实体CRUD" />
     <MESSAGE value="新增system模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增system模块" />
+    <MESSAGE value="[system] 新增RBAC实体类" />
+    <option name="LAST_COMMIT_MESSAGE" value="[system] 新增RBAC实体类" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

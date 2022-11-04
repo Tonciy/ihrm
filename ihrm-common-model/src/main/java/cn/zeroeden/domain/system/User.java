@@ -1,5 +1,6 @@
 package cn.zeroeden.domain.system;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -97,5 +98,6 @@ public class User implements Serializable {
 //    @JoinTable(name="pe_user_role",joinColumns={@JoinColumn(name="user_id",referencedColumnName="id")},
 //            inverseJoinColumns={@JoinColumn(name="role_id",referencedColumnName="id")}
 //    )
+    @TableField(exist = false)
     private Set<Role> roles = new HashSet<Role>();//用户与角色   多对多
 }

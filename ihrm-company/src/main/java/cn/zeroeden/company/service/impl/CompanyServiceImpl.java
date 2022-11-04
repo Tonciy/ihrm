@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * @author Zero
  * @Description 描述此类
@@ -35,6 +33,7 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyDao, Company> impleme
         company.setState(1);
        companyDao.insert(company);
     }
+
 
 
 

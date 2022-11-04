@@ -3,8 +3,6 @@ package cn.zeroeden.company.service;
 import cn.zeroeden.domain.company.Company;
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.List;
-
 /**
  * @author Zero
  * @Description 描述此类
@@ -12,8 +10,10 @@ import java.util.List;
 public interface CompanyService extends IService<Company> {
 
     /**
-     * 增加实体
-     * @param company
+     * 保存部门
+     * @param department
      */
-    public void add(Company company);
+    public void add(Company department);
+
+
 }

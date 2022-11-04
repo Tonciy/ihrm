@@ -1,5 +1,6 @@
 package cn.zeroeden.domain.system;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class Role implements Serializable {
 
     @JsonIgnore
 //    @ManyToMany(mappedBy="roles")
+    @TableField(exist = false)
     private Set<User> users = new HashSet<User>(0);//角色与用户   多对多
 
 
@@ -38,5 +40,6 @@ public class Role implements Serializable {
 //    @JoinTable(name="pe_role_permission",
 //            joinColumns={@JoinColumn(name="role_id",referencedColumnName="id")},
 //            inverseJoinColumns={@JoinColumn(name="permission_id",referencedColumnName="id")})
+    @TableField(exist = false)
     private Set<Permission> permissions = new HashSet<Permission>(0);//角色与模块  多对多
 }
