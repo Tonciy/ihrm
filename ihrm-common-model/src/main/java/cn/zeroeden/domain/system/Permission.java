@@ -25,6 +25,9 @@ public class Permission implements Serializable {
      */
     private Integer type;
 
+    /**
+     * 权限编码--后面做权限控制用
+     */
     private String code;
 
     /**
@@ -34,6 +37,9 @@ public class Permission implements Serializable {
 
     private String pid;
 
+    /**
+     * 可见状态
+     */
     private Integer enVisible;
 
     public Permission(String name, Integer type, String code, String description) {
