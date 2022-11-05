@@ -1,6 +1,7 @@
 package cn.zeroeden.system;
 
 import cn.zeroeden.utils.IdWorker;
+import cn.zeroeden.utils.JwtUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -27,5 +28,14 @@ public class SystemApplication {
     @Bean
     public IdWorker idWorker(){
         return new IdWorker();
+    }
+
+    /**
+     * JWT 工具类
+     * @return
+     */
+    @Bean
+    public JwtUtils jwtUtils() {
+        return new JwtUtils();
     }
 }

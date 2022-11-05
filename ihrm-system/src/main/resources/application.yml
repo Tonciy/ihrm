@@ -19,3 +19,10 @@ mybatis-plus:
     db-config:
       # 雪花算法生成注解id
       id-type: ASSIGN_ID
+
+
+# token 配置
+jwt:
+  config:
+    key: zero
+    ttl: 3600

@@ -54,6 +54,14 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     @Override
+    public User findByMobile(String mobile) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getMobile, mobile);
+        User user = userDao.selectOne(wrapper);
+        return user;
+    }
+
+    @Override
     public User findById(String id) {
         return userDao.selectById(id);
     }
