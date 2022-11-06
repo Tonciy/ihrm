@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +187,7 @@
       <workItem from="1667560170770" duration="7559000" />
       <workItem from="1667630818884" duration="8483000" />
       <workItem from="1667711489088" duration="6031000" />
-      <workItem from="1667724576448" duration="3978000" />
+      <workItem from="1667724576448" duration="4086000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -275,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667726435076</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）">
+      <created>1667728666069</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667728666069</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +309,8 @@
     <MESSAGE value="[system] 为用户分配角色，为角色分配资源（注意还没做1-n,n-n查询）" />
     <MESSAGE value="[system] 使用jwt做登录接口" />
     <MESSAGE value="[system] 增加拦截器进行认证并初始基础数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="[system] 增加拦截器进行认证并初始基础数据" />
+    <MESSAGE value="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）" />
+    <option name="LAST_COMMIT_MESSAGE" value="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

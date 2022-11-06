@@ -63,10 +63,14 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
                     default:
                         throw new CommonException("不支持的请求类型");
                 }
-                if(!StringUtils.isEmpty(apis) && name != null && apis.contains(name)){
+                //if(!StringUtils.isEmpty(apis) && name != null && apis.contains(name)){   如需权限限定时使用开放此句即可
+                if(true){ // 为了方便后面测试，这里先统一不搞权限限定
                     // 表示具有访问权限
                     request.setAttribute("user_claims", claims);
                     return true;
+                }else{
+                    // 无访问权限
+                    throw new CommonException(ResultCode.UNAUTHORISE);
                 }
 
             }
