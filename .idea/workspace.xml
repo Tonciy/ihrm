@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/constant/UserLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/config/SystemConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/system/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/exception/CommonException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/exception/CommonException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/handle/BaseExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/handle/BaseExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +82,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\config" />
       <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
       <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\system" />
       <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\resources" />
       <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\company" />
-      <recent name="D:\Code\ihrm-parent" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.zeroeden.system.controller" />
@@ -202,7 +189,7 @@
       <workItem from="1667560170770" duration="7559000" />
       <workItem from="1667630818884" duration="8483000" />
       <workItem from="1667711489088" duration="6031000" />
-      <workItem from="1667724576448" duration="1614000" />
+      <workItem from="1667724576448" duration="3978000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -281,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667640293086</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[system] 增加拦截器进行认证并初始基础数据">
+      <created>1667726435076</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1667726435076</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +303,8 @@
     <MESSAGE value="[system] 权限CRUD（根据不同类别来做）" />
     <MESSAGE value="[system] 为用户分配角色，为角色分配资源（注意还没做1-n,n-n查询）" />
     <MESSAGE value="[system] 使用jwt做登录接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="[system] 使用jwt做登录接口" />
+    <MESSAGE value="[system] 增加拦截器进行认证并初始基础数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="[system] 增加拦截器进行认证并初始基础数据" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

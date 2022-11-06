@@ -3,6 +3,7 @@ package cn.zeroeden.system.controller;
 import cn.zeroeden.controller.BaseController;
 import cn.zeroeden.domain.company.response.ProfileResult;
 import cn.zeroeden.domain.system.Permission;
+import cn.zeroeden.domain.system.Role;
 import cn.zeroeden.domain.system.User;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
@@ -11,6 +12,7 @@ import cn.zeroeden.entity.UserResult;
 import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.JwtUtils;
+import cn.zeroeden.utils.PermissionConstants;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static cn.zeroeden.constant.UserLevel.COMPANY_ADMIN;
 import static cn.zeroeden.constant.UserLevel.USER;
@@ -48,7 +51,7 @@ public class UserController extends BaseController {
      * @param data 装载手机号和密码的载体
      * @return 返回结果
      */
-    @PostMapping("/login")
+    @PostMapping(value = "/login",name = "point-user-delete")
     public Result login(@RequestBody Map<String, Object> data) {
         String mobile = (String) data.get("mobile");
         String password = (String) data.get("password");
@@ -58,9 +61,21 @@ public class UserController extends BaseController {
             return new Result(MOBILE_OR_PASSWORD_ERROR);
         } else {
             // 登录成功
+            StringBuilder sb = new StringBuilder();
+            // 获取当前用户可以访问的所有API权限
+            Set<Role> roles = user.getRoles();
+            for (Role role : roles) {
+                for (Permission permission : role.getPermissions()) {
+                    if(permission.getType() == PermissionConstants.PY_API){
+                        // code是每个API请求的唯一标识符
+                        sb.append(permission.getCode()).append(",");
+                    }
+                }
+            }
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("companyId", user.getCompanyId());
             map.put("companyName", user.getCompanyName());
+            map.put("apis",sb.toString());
             String token = jwtUtils.createJwt(user.getId(), user.getUsername(), map);
             return Result.SUCCESS(token);
         }
