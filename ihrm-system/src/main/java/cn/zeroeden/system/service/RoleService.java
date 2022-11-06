@@ -51,4 +51,18 @@ public interface RoleService extends IService<Role> {
      * @return 角色集合
      */
     List<Role> findAll();
+
+    /**
+     * 查询当前角色所映射的用户
+     * @param role
+     * @return
+     */
+    Role findUsers(Role role);
+
+    /**
+     * 查询当前角色所映射的权限信息
+     * @param role
+     * @return
+     */
+    Role findPermissions(Role role);
 }

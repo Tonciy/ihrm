@@ -10,6 +10,13 @@ import java.util.Map;
 public interface UserService extends IService<User> {
 
     /**
+     * 为用户查询角色
+     * @param user 用户
+     * @return 装载了角色信息的用户
+     */
+    User findRoles(User user);
+
+    /**
      * 根据手机号查找用户
      * @param mobile 手机号
      * @return 用户

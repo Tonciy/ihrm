@@ -2,18 +2,17 @@ package cn.zeroeden.system.controller;
 
 import cn.zeroeden.controller.BaseController;
 import cn.zeroeden.domain.company.response.ProfileResult;
+import cn.zeroeden.domain.system.Permission;
 import cn.zeroeden.domain.system.User;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.entity.ResultCode;
 import cn.zeroeden.entity.UserResult;
-import cn.zeroeden.exception.CommonException;
+import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.JwtUtils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static cn.zeroeden.constant.UserLevel.COMPANY_ADMIN;
+import static cn.zeroeden.constant.UserLevel.USER;
 import static cn.zeroeden.entity.ResultCode.MOBILE_OR_PASSWORD_ERROR;
 
 /**
@@ -37,6 +38,9 @@ public class UserController extends BaseController {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    private PermissionService permissionService;
 
     /**
      * 登录接口
@@ -70,15 +74,22 @@ public class UserController extends BaseController {
      */
     @PostMapping("/profile")
     public Result profile(HttpServletRequest request) throws Exception {
-        String authorization = request.getHeader("Authorization");
-        if (StringUtils.isEmpty(authorization)) {
-            throw new CommonException("未登录");
-        }
-        String token = authorization.replace("Bearer ", "");
-        Claims claims = jwtUtils.parseJwt(token);
         String userId = claims.getId();
         User user = userService.findById(userId);
-        return Result.SUCCESS(new ProfileResult(user));
+        ProfileResult profileResult = null;
+        if (USER.equals(user.getLevel())) {
+            // 普通用户
+            profileResult = new ProfileResult(user);
+        } else {
+            HashMap<String, Object> map = new HashMap<>();
+            if (COMPANY_ADMIN.equals(user.getLevel())) {
+                // 企业管理员
+                map.put("enVisible", "1");
+            }
+            List<Permission> list = permissionService.findAll(map);
+            profileResult = new ProfileResult(user, list);
+        }
+        return Result.SUCCESS(profileResult);
     }
 
     @PostMapping("/user")
@@ -100,7 +111,11 @@ public class UserController extends BaseController {
         //TODO 假设当前用户的企业id
         map.put("companyId", companyId);
         IPage res = userService.findAll(map, page, size);
-        PageResult<User> r = new PageResult<>(res.getTotal(), res.getRecords());
+        List<User> users = res.getRecords();
+        for (int i = 0; i < users.size(); i++) {
+            users.set(i, userService.findRoles(users.get(i)));
+        }
+        PageResult<User> r = new PageResult<>(res.getTotal(), users);
         return new Result(ResultCode.SUCCESS, r);
     }
 

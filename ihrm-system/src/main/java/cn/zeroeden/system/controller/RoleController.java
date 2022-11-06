@@ -66,8 +66,15 @@ public class RoleController extends BaseController {
     public Result findByPage(int page, int pagesize, Role role) throws Exception {
         String companyId = "1";
         IPage<Role> searchPage = roleService.findSearch(companyId, page, pagesize);
+        List<Role> roles = searchPage.getRecords();
+        for (int i = 0; i < roles.size(); i++) {
+            Role role1 = roles.get(i);
+            role1 = roleService.findUsers(role1);
+            role1 = roleService.findPermissions(role1);
+            roles.set(i, role1);
+        }
         PageResult<Role> pr = new
-                PageResult(searchPage.getTotal(), searchPage.getRecords());
+                PageResult(searchPage.getTotal(), roles);
         return new Result(ResultCode.SUCCESS, pr);
     }
 

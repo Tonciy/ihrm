@@ -2,7 +2,6 @@ package cn.zeroeden.domain.system;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -93,8 +92,15 @@ public class User implements Serializable {
     private String departmentName;
 
 
+    /**
+     * 用户身份--大概
+     *  * saasAdmin：saas管理员具有所有权限
+     *  * coAdmin：企业管理员
+     *  * user： 普通用户
+     */
+    private String level;
 //    @ManyToMany
-    @JsonIgnore
+//    @JsonIgnore
 //    @JoinTable(name="pe_user_role",joinColumns={@JoinColumn(name="user_id",referencedColumnName="id")},
 //            inverseJoinColumns={@JoinColumn(name="role_id",referencedColumnName="id")}
 //    )

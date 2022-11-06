@@ -1,10 +1,7 @@
 package cn.zeroeden.system.service.impl;
 
-import cn.zeroeden.domain.system.Permission;
-import cn.zeroeden.domain.system.Role;
-import cn.zeroeden.domain.system.RolePermission;
-import cn.zeroeden.system.dao.RoleDao;
-import cn.zeroeden.system.dao.RolePermissionDao;
+import cn.zeroeden.domain.system.*;
+import cn.zeroeden.system.dao.*;
 import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.RoleService;
 import cn.zeroeden.utils.IdWorker;
@@ -18,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author: Zero
@@ -35,6 +34,47 @@ public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleS
     private PermissionService permissionService;
     @Autowired
     private RolePermissionDao rolePermissionDao;
+
+    @Autowired
+    private UserRoleDao userRoleDao;
+
+    @Autowired
+    private PermissionDao permissionDao;
+    @Autowired
+    private UserDao userDao;
+    @Override
+    public Role findUsers(Role role) {
+        if(role != null){
+            LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(UserRole::getRoleId, role.getId());
+            List<UserRole> userRoles = userRoleDao.selectList(wrapper);
+            Set<User> users = new HashSet<>();
+            for (UserRole userRole : userRoles) {
+                User user = userDao.selectById(userRole.getUserId());
+                users.add(user);
+            }
+            role.setUsers(users);
+
+        }
+        return role;
+    }
+
+    @Override
+    public Role findPermissions(Role role) {
+        if(role != null){
+            LambdaQueryWrapper<RolePermission> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(RolePermission::getRoleId, role.getId());
+            List<RolePermission> userRoles = rolePermissionDao.selectList(wrapper);
+            Set<Permission> permissions = new HashSet<>();
+            for (RolePermission rolePermission : userRoles) {
+                Permission user = permissionDao.selectById(rolePermission.getPermissionId());
+                permissions.add(user);
+            }
+            role.setPermissions(permissions);
+
+        }
+        return role;
+    }
 
     @Override
     public void add(Role role) {
@@ -53,7 +93,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleS
 
     @Override
     public Role findById(String id) {
-        return roleDao.selectById(id);
+        Role role =  roleDao.selectById(id);
+        role = this.findUsers(role);
+        role = this.findPermissions(role);
+        return role;
     }
 
     @Override
@@ -74,7 +117,14 @@ public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleS
 
     @Override
     public List<Role> findAll() {
-        return roleDao.selectList(null);
+        List<Role> roles = roleDao.selectList(null);
+        for (int i = 0; i < roles.size(); i++) {
+            Role role1 = roles.get(i);
+            role1 = this.findUsers(role1);
+            role1 = this.findPermissions(role1);
+            roles.set(i, role1);
+        }
+        return roles;
     }
 
     @Override

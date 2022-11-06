@@ -1,7 +1,9 @@
 package cn.zeroeden.system.service.impl;
 
+import cn.zeroeden.domain.system.Role;
 import cn.zeroeden.domain.system.User;
 import cn.zeroeden.domain.system.UserRole;
+import cn.zeroeden.system.dao.RoleDao;
 import cn.zeroeden.system.dao.UserDao;
 import cn.zeroeden.system.dao.UserRoleDao;
 import cn.zeroeden.system.service.UserService;
@@ -14,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author: Zero
@@ -32,6 +36,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Autowired
     private UserRoleDao userRoleDao;
+
+    @Autowired
+    private RoleDao roleDao;
     @Override
     public void add(User user) {
         // 设置默认值
@@ -54,16 +61,38 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     @Override
+    public User findRoles(User user) {
+        // 填充角色信息
+        if(user != null){
+            String userId = user.getId();
+            LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(UserRole::getUserId, userId);
+            List<UserRole> roleIds = userRoleDao.selectList(queryWrapper);
+            Set<Role> roles = new HashSet<>();
+            for (UserRole roleId : roleIds) {
+                Role role = roleDao.selectById(roleId.getRoleId());
+                roles.add(role);
+            }
+            user.setRoles(roles);
+        }
+        return user;
+    }
+
+    @Override
     public User findByMobile(String mobile) {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getMobile, mobile);
         User user = userDao.selectOne(wrapper);
+        user = this.findRoles(user);
         return user;
     }
 
     @Override
     public User findById(String id) {
-        return userDao.selectById(id);
+        User user =  userDao.selectById(id);
+        // 填充角色信息
+        user = this.findRoles(user);
+        return user;
     }
 
     @Override
