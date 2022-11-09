@@ -2,8 +2,6 @@ package cn.zeroeden.system.controller;
 
 import cn.zeroeden.controller.BaseController;
 import cn.zeroeden.domain.company.response.ProfileResult;
-import cn.zeroeden.domain.system.Permission;
-import cn.zeroeden.domain.system.Role;
 import cn.zeroeden.domain.system.User;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
@@ -12,19 +10,19 @@ import cn.zeroeden.entity.UserResult;
 import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.JwtUtils;
-import cn.zeroeden.utils.PermissionConstants;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import static cn.zeroeden.constant.UserLevel.COMPANY_ADMIN;
-import static cn.zeroeden.constant.UserLevel.USER;
 import static cn.zeroeden.entity.ResultCode.MOBILE_OR_PASSWORD_ERROR;
 
 /**
@@ -51,34 +49,54 @@ public class UserController extends BaseController {
      * @param data 装载手机号和密码的载体
      * @return 返回结果
      */
-    @PostMapping(value = "/login",name = "point-user-delete")
+    @PostMapping(value = "/login", name = "point-user-delete")
     public Result login(@RequestBody Map<String, Object> data) {
         String mobile = (String) data.get("mobile");
         String password = (String) data.get("password");
-        User user = userService.findByMobile(mobile);
-        if (user == null || !user.getPassword().equals(password)) {
+        // 改为使用Shiro框架
+        try {
+            // 加密密码
+            password = new Md5Hash(password, mobile, 3).toString();
+            // 构造token
+            UsernamePasswordToken token = new UsernamePasswordToken(mobile, password);
+            // 获取Subject
+            Subject subject = SecurityUtils.getSubject();
+            // 调用login方法，进入realm中完成认证
+            subject.login(token);
+            // 获取sessionId
+            String sessionId = subject.getSession().getId().toString();
+            return Result.SUCCESS(sessionId);
+        } catch (Exception e) {
             // 登录失败
             return new Result(MOBILE_OR_PASSWORD_ERROR);
-        } else {
-            // 登录成功
-            StringBuilder sb = new StringBuilder();
-            // 获取当前用户可以访问的所有API权限
-            Set<Role> roles = user.getRoles();
-            for (Role role : roles) {
-                for (Permission permission : role.getPermissions()) {
-                    if(permission.getType() == PermissionConstants.PY_API){
-                        // code是每个API请求的唯一标识符
-                        sb.append(permission.getCode()).append(",");
-                    }
-                }
-            }
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("companyId", user.getCompanyId());
-            map.put("companyName", user.getCompanyName());
-            map.put("apis",sb.toString());
-            String token = jwtUtils.createJwt(user.getId(), user.getUsername(), map);
-            return Result.SUCCESS(token);
         }
+
+
+        // 下面是正常的token执行逻辑
+//        User user = userService.findByMobile(mobile);
+//        if (user == null || !user.getPassword().equals(password)) {
+//            // 登录失败
+//            return new Result(MOBILE_OR_PASSWORD_ERROR);
+//        } else {
+//            // 登录成功
+//            StringBuilder sb = new StringBuilder();
+//            // 获取当前用户可以访问的所有API权限
+//            Set<Role> roles = user.getRoles();
+//            for (Role role : roles) {
+//                for (Permission permission : role.getPermissions()) {
+//                    if(permission.getType() == PermissionConstants.PY_API){
+//                        // code是每个API请求的唯一标识符
+//                        sb.append(permission.getCode()).append(",");
+//                    }
+//                }
+//            }
+//            Map<String, Object> map = new HashMap<String, Object>();
+//            map.put("companyId", user.getCompanyId());
+//            map.put("companyName", user.getCompanyName());
+//            map.put("apis",sb.toString());
+//            String token = jwtUtils.createJwt(user.getId(), user.getUsername(), map);
+//            return Result.SUCCESS(token);
+//        }
     }
 
     /**
@@ -89,21 +107,30 @@ public class UserController extends BaseController {
      */
     @PostMapping("/profile")
     public Result profile(HttpServletRequest request) throws Exception {
-        String userId = claims.getId();
-        User user = userService.findById(userId);
-        ProfileResult profileResult = null;
-        if (USER.equals(user.getLevel())) {
-            // 普通用户
-            profileResult = new ProfileResult(user);
-        } else {
-            HashMap<String, Object> map = new HashMap<>();
-            if (COMPANY_ADMIN.equals(user.getLevel())) {
-                // 企业管理员
-                map.put("enVisible", "1");
-            }
-            List<Permission> list = permissionService.findAll(map);
-            profileResult = new ProfileResult(user, list);
-        }
+        // shiro方式获取
+        // 获取session中的安全数据
+        Subject subject = SecurityUtils.getSubject();
+        // subject 获取所有的安全数据集合
+        PrincipalCollection principals = subject.getPrincipals();
+        // 获取安全数据
+        ProfileResult profileResult = (ProfileResult)principals.getPrimaryPrincipal();
+
+        // jwt方式获取
+//        String userId = claims.getId();
+//        User user = userService.findById(userId);
+//        ProfileResult profileResult = null;
+//        if (USER.equals(user.getLevel())) {
+//            // 普通用户
+//            profileResult = new ProfileResult(user);
+//        } else {
+//            HashMap<String, Object> map = new HashMap<>();
+//            if (COMPANY_ADMIN.equals(user.getLevel())) {
+//                // 企业管理员
+//                map.put("enVisible", "1");
+//            }
+//            List<Permission> list = permissionService.findAll(map);
+//            profileResult = new ProfileResult(user, list);
+//        }
         return Result.SUCCESS(profileResult);
     }
 

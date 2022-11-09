@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
+    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="[system] 为后面方便测试-权限限定先统一给过">
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/ErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/shiro/realm/IhrmRealm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/shiro/session/CustomSessionManager/CustomSessionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/shiro/ShiroConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/shiro/realm/UserRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/entity/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/entity/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/interceptor/JwtInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/entity/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/entity/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +84,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-system/src/main/java/cn/zeroeden/system/config",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-common/src/main/java/cn/zeroeden/controller",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -80,11 +95,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\controller" />
+      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\shiro" />
+      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\shiro\realm" />
+      <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\shiro\session\CustomSessionManager" />
       <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\config" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\system" />
-      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\resources" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\company" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.zeroeden.system.controller" />
@@ -187,7 +202,12 @@
       <workItem from="1667560170770" duration="7559000" />
       <workItem from="1667630818884" duration="8483000" />
       <workItem from="1667711489088" duration="6031000" />
-      <workItem from="1667724576448" duration="4086000" />
+      <workItem from="1667724576448" duration="4877000" />
+      <workItem from="1667729973192" duration="74000" />
+      <workItem from="1667805724812" duration="796000" />
+      <workItem from="1667810769150" duration="12000" />
+      <workItem from="1667898556783" duration="45000" />
+      <workItem from="1667975623000" duration="4643000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -280,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667728666069</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="[system] 为后面方便测试-权限限定先统一给过">
+      <created>1667728826275</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667728826275</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +337,8 @@
     <MESSAGE value="[system] 使用jwt做登录接口" />
     <MESSAGE value="[system] 增加拦截器进行认证并初始基础数据" />
     <MESSAGE value="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）" />
-    <option name="LAST_COMMIT_MESSAGE" value="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）" />
+    <MESSAGE value="[system] 为后面方便测试-权限限定先统一给过" />
+    <option name="LAST_COMMIT_MESSAGE" value="[system] 为后面方便测试-权限限定先统一给过" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

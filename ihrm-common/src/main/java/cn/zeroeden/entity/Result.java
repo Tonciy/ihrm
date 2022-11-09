@@ -57,6 +57,9 @@ public class Result {
     public static Result ERROR() {
         return new Result(ResultCode.SERVER_ERROR);
     }
+    public static Result ERROR(Object data) {
+        return new Result(ResultCode.SERVER_ERROR, data);
+    }
 
     public static Result FAIL() {
         return new Result(ResultCode.FAIL);

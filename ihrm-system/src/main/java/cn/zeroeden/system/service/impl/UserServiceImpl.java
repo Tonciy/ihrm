@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -43,9 +44,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     public void add(User user) {
         // 设置默认值
         String id = idWorker.nextId() + "";
+        String password = new Md5Hash("123456", user.getMobile(), 3).toString();
+        // 只能添加普通用户，管理员的添加在别的接口
+        user.setLevel("user");
         user.setId(id);
         user.setEnableState(1); // 1为启用
-        user.setPassword("123456"); // 初始密码
+        user.setPassword(password); // 初始密码
         userDao.insert(user);
     }
 
