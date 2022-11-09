@@ -13,12 +13,24 @@
         <module>ihrm-company</module>
         <module>ihrm-system</module>
         <module>ihrm-employee</module>
-        <module>ihrm-employee</module>
+        <module>ihrm-eureka</module>
     </modules>
 
     <packaging>pom</packaging>
     <name>ihrm-parent</name>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

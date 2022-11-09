@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/ihrm-employee" />
     <file type="web" url="file://$PROJECT_DIR$/ihrm-employee/ihrm-employee" />
+    <file type="web" url="file://$PROJECT_DIR$/ihrm-eureka" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

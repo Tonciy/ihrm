@@ -5,47 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/EmployeeArchive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/EmployeePositive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/EmployeeResignation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/EmployeeTransferPosition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/UserCompanyJobs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/UserCompanyPersonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/employee/response/EmployeeReportResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/shiro/ShiroConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/EmployeeApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/ArchiveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/EmployeeResignationDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/PositiveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/TransferPositionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/UserCompanyJobsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/dao/UserCompanyPersonalDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/ArchiveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/PositiveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/ResignationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/TransferPositionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/UserCompanyJobsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/UserCompanyPersonalService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/ArchiveServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/PositiveServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/ResignationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/TransferPositionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/UserCompanyJobsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/service/impl/UserCompanyPersonalServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/shiro/ShiroConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-employee/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/feign/FeignConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-eureka/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-eureka/src/main/java/cn/zeroeden/eureka/EurekaApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-eureka/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/client/DepartmentFeignClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/company/response/ProfileResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/handle/BaseExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/handle/BaseExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/handle/BaseExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/target/classes/cn/zeroeden/handle/BaseExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/CompanyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/src/main/java/cn/zeroeden/company/CompanyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-company/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-company/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/CompanyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/target/classes/cn/zeroeden/company/CompanyApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-employee/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-employee/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/EmployeeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-employee/src/main/java/cn/zeroeden/employee/EmployeeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-employee/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-employee/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/SystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/SystemApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/java/cn/zeroeden/system/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,25 +81,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/ihrm-parent/ihrm-employee/src/main/resources&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;spring.boot&quot;,
-    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f0ae18a83a8eeabdd504e95852650412&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-employee/src/main/resources",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "f0ae18a83a8eeabdd504e95852650412"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-employee\src\main\resources" />
@@ -132,7 +113,7 @@
       <recent name="cn.zeroeden.system.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.EmployeeApplication">
+  <component name="RunManager" selected="Spring Boot.SystemApplication">
     <configuration name="TokenDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.zeroeden.dem.TokenDemo" />
       <module name="ihrm-common" />
@@ -182,6 +163,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.eureka.EurekaApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zeroeden.eureka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ihrm-system" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.system.SystemApplication" />
@@ -198,9 +192,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SystemApplication" />
+        <item itemvalue="Spring Boot.CompanyApplication" />
+        <item itemvalue="Spring Boot.EurekaApplication" />
         <item itemvalue="Application.TokenDemo" />
         <item itemvalue="JUnit.CompanyTest.test" />
-        <item itemvalue="Spring Boot.CompanyApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +239,7 @@
       <workItem from="1667975623000" duration="5585000" />
       <workItem from="1667984058919" duration="1307000" />
       <workItem from="1667985742988" duration="3425000" />
-      <workItem from="1667996515956" duration="817000" />
+      <workItem from="1667996515956" duration="4398000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -351,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667980666894</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="[employee] 基础CRUD">
+      <created>1667997606809</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667997606809</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +385,8 @@
     <MESSAGE value="[system] 增加权限认证过程（需要维护每个请求接口上注解的name属性-代做）" />
     <MESSAGE value="[system] 为后面方便测试-权限限定先统一给过" />
     <MESSAGE value="[parent] JWT认证授权改为Shiro + Redis" />
-    <option name="LAST_COMMIT_MESSAGE" value="[parent] JWT认证授权改为Shiro + Redis" />
+    <MESSAGE value="[employee] 基础CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="[employee] 基础CRUD" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

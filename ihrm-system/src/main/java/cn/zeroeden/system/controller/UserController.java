@@ -7,6 +7,7 @@ import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.entity.ResultCode;
 import cn.zeroeden.entity.UserResult;
+import cn.zeroeden.system.client.DepartmentFeignClient;
 import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.JwtUtils;
@@ -42,6 +43,21 @@ public class UserController extends BaseController {
 
     @Autowired
     private PermissionService permissionService;
+
+    @Autowired
+    private DepartmentFeignClient departmentFeignClient;
+
+    /**
+     * 测试远程调用
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/test/{id}", method = RequestMethod.GET)
+    public Result testFeign(@PathVariable(value = "id") String id) throws Exception{
+        Result result = departmentFeignClient.findById(id);
+        return result;
+    }
 
     /**
      * 登录接口

@@ -22,6 +22,11 @@ mybatis-plus:
       # 雪花算法生成注解id
       id-type: ASSIGN_ID
 
+#微服务注册到eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka/
 
 # token 配置
 jwt:

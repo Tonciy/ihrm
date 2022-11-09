@@ -5,6 +5,9 @@ import cn.zeroeden.utils.JwtUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -14,6 +17,9 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication(scanBasePackages = "cn.zeroeden")
 @EntityScan(value = "cn.zeroeden.domain.system")
+@EnableEurekaClient  // Eureka服务注册
+@EnableDiscoveryClient // 允许发现远程被调用的客户端
+@EnableFeignClients  // 运行远程调用接口
 public class SystemApplication {
 
     public static void main(String[] args) {
