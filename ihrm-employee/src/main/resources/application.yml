@@ -1,13 +1,17 @@
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:6868/eureka/
 server:
-  port: 9001
+  port: 9003
 spring:
   application:
-    name: ihrm-company #指定服务名
+    name: ihrm-employee #指定服务名
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ihrm?useUnicode=true&characterEncoding=utf8serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: 123456
+    password: 111111
   redis:
     host: 127.0.0.1
     port: 6379
@@ -22,3 +26,4 @@ mybatis-plus:
     db-config:
       # 雪花算法生成注解id
       id-type: ASSIGN_ID
+

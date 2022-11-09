@@ -19,6 +19,7 @@ import java.util.*;
 @Data
 @NoArgsConstructor
 public class ProfileResult implements Serializable, AuthCachePrincipal {
+    private String userId;
     private String mobile;
     private String username;
     private String company;
@@ -30,6 +31,7 @@ public class ProfileResult implements Serializable, AuthCachePrincipal {
         this.username  = user.getUsername();
         this.company = user.getCompanyName();
         this.companyId = user.getCompanyId();
+        this.userId = user.getId();
         Set<String> menus = new HashSet<>();
         Set<String> points = new HashSet<>();
         Set<String> apis = new HashSet<>();
@@ -52,6 +54,7 @@ public class ProfileResult implements Serializable, AuthCachePrincipal {
         this.username  = user.getUsername();
         this.company = user.getCompanyName();
         this.companyId = user.getCompanyId();
+        this.userId = user.getId();
         Set<Role> role2 = user.getRoles();
         Set<String> menus = new HashSet<>();
         Set<String> points = new HashSet<>();
