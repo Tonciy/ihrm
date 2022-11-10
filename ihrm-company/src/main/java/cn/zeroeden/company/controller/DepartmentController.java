@@ -24,6 +24,12 @@ public class DepartmentController extends BaseController {
     @Autowired
     private CompanyService companyService;
 
+    @GetMapping("/department/search")
+    public Department finDByCodeAndCompanyId(@RequestParam("code") String code,
+                                             @RequestParam("companyId")String companyId){
+        return departmentService.findByCode(code, companyId);
+    }
+
     @PostMapping("/department")
     public Result save(@RequestBody Department department){
         // 1. 设置保存的企业id

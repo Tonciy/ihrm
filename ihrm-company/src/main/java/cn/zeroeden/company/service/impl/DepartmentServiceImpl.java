@@ -20,6 +20,15 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentDao, Department
 
     @Autowired
     private DepartmentDao departmentDao;
+    @Override
+    public Department findByCode(String code, String companyId) {
+        LambdaQueryWrapper<Department> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Department::getCode, code);
+        wrapper.eq(Department::getCompanyId, companyId);
+        Department department = departmentDao.selectOne(wrapper);
+        return department;
+    }
+
 
     @Override
     public void add(Department department) {

@@ -12,6 +12,8 @@ import cn.zeroeden.system.service.PermissionService;
 import cn.zeroeden.system.service.UserService;
 import cn.zeroeden.utils.JwtUtils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -19,8 +21,10 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,14 +51,71 @@ public class UserController extends BaseController {
     @Autowired
     private DepartmentFeignClient departmentFeignClient;
 
+
+    /**
+     * 通过Excel，添加用户
+     *
+     * @param file Excel文件
+     * @return
+     */
+    @PostMapping("/user/import")
+    public Result importUserByExcel(@RequestParam("file") MultipartFile file) throws Exception {
+        Workbook workbook = new XSSFWorkbook(file.getInputStream());
+        Sheet sheet = workbook.getSheetAt(0);
+        ArrayList<User> users = new ArrayList<>();
+        for (int rowNum = 1; rowNum < sheet.getLastRowNum(); rowNum++) {
+            Row row = sheet.getRow(rowNum);
+            Object[] values = new Object[row.getLastCellNum()];
+            for (int cellNum = 1; cellNum <= row.getLastCellNum(); cellNum++) {
+                Cell cell = row.getCell(cellNum);
+                Object value = getCellValue(cell);
+                values[cellNum] = value;
+            }
+            User user = new User(values);
+            users.add(user);
+
+        }
+        userService.saveAll(users, companyId, companyName);
+        return Result.SUCCESS();
+    }
+
+    /**
+     * 从Cell中获取数据
+     */
+    private  Object getCellValue(Cell cell) {
+        Object value = null;
+        switch (cell.getCellType()) {
+            case STRING: //字符串类型
+                value = cell.getStringCellValue();
+                break;
+            case BOOLEAN: //boolean类型
+                value = cell.getBooleanCellValue();
+                break;
+            case NUMERIC: //数字类型（包含日期和普通数字）
+                if (DateUtil.isCellDateFormatted(cell)) {
+                    value = cell.getDateCellValue();
+                } else {
+                    value = cell.getNumericCellValue();
+                }
+                break;
+            case FORMULA: //公式类型
+                value = cell.getCellFormula();
+                break;
+            default:
+                break;
+        }
+        return value;
+    }
+
     /**
      * 测试远程调用
+     *
      * @param id
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/test/{id}", method = RequestMethod.GET)
-    public Result testFeign(@PathVariable(value = "id") String id) throws Exception{
+    public Result testFeign(@PathVariable(value = "id") String id) throws Exception {
         Result result = departmentFeignClient.findById(id);
         return result;
     }
@@ -129,7 +190,7 @@ public class UserController extends BaseController {
         // subject 获取所有的安全数据集合
         PrincipalCollection principals = subject.getPrincipals();
         // 获取安全数据
-        ProfileResult profileResult = (ProfileResult)principals.getPrimaryPrincipal();
+        ProfileResult profileResult = (ProfileResult) principals.getPrimaryPrincipal();
 
         // jwt方式获取
 //        String userId = claims.getId();

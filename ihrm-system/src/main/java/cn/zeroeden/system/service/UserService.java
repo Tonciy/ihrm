@@ -10,6 +10,13 @@ import java.util.Map;
 public interface UserService extends IService<User> {
 
     /**
+     * 保存用户集合
+     * @param users
+     * @param companyId
+     * @param companyName
+     */
+    void saveAll(List<User> users, String companyId, String companyName) throws Exception;
+    /**
      * 为用户查询角色
      * @param user 用户
      * @return 装载了角色信息的用户

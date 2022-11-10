@@ -2,10 +2,13 @@ package cn.zeroeden.domain.system;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +20,8 @@ import java.util.Set;
 @TableName("bs_user")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
     private static final long serialVersionUID = 4297464181093070302L;
     /**
@@ -106,4 +111,15 @@ public class User implements Serializable {
 //    )
     @TableField(exist = false)
     private Set<Role> roles = new HashSet<Role>();//用户与角色   多对多
+
+
+    public User(Object[] values){
+        // 用户名 手机号 工号 聘用形式   入职时间  部门编码
+        this.username = values[1].toString();
+        this.mobile = values[2].toString();
+        this.workNumber = new DecimalFormat("#").format(values[3]).toString();
+        this.formOfEmployment = ((Double)values[4]).intValue();
+        this.timeOfEntry = (Date)values[5];
+        this.departmentId = values[6].toString();
+    }
 }

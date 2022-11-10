@@ -1,8 +1,10 @@
 package cn.zeroeden.system.service.impl;
 
+import cn.zeroeden.domain.company.Department;
 import cn.zeroeden.domain.system.Role;
 import cn.zeroeden.domain.system.User;
 import cn.zeroeden.domain.system.UserRole;
+import cn.zeroeden.system.client.DepartmentFeignClient;
 import cn.zeroeden.system.dao.RoleDao;
 import cn.zeroeden.system.dao.UserDao;
 import cn.zeroeden.system.dao.UserRoleDao;
@@ -15,6 +17,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
@@ -30,6 +33,30 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
+
+    @Autowired
+    private DepartmentFeignClient departmentFeignClient;
+    @Override
+    @Transactional
+    public void saveAll(List<User> users, String companyId, String companyName) throws Exception {
+        for (User user : users) {
+            // 基本设置
+            user.setPassword(new Md5Hash("123456", user.getMobile(), 3).toString());
+            user.setId(idWorker.nextId() + "");
+            user.setCompanyId(companyId);
+            user.setCompanyName(companyName);
+            user.setInServiceStatus(1);
+            user.setEnableState(1);
+            user.setLevel("user");
+            Department department = departmentFeignClient.findByCode(user.getDepartmentId(), companyId);
+            if(department != null){
+                user.setDepartmentId(department.getId());
+                user.setDepartmentName(department.getName());
+            }
+            this.save(user);
+        }
+    }
+
     @Autowired
     private UserDao userDao;
     @Autowired
@@ -40,6 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Autowired
     private RoleDao roleDao;
+
     @Override
     public void add(User user) {
         // 设置默认值
@@ -67,7 +95,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public User findRoles(User user) {
         // 填充角色信息
-        if(user != null){
+        if (user != null) {
             String userId = user.getId();
             LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.eq(UserRole::getUserId, userId);
@@ -93,7 +121,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Override
     public User findById(String id) {
-        User user =  userDao.selectById(id);
+        User user = userDao.selectById(id);
         // 填充角色信息
         user = this.findRoles(user);
         return user;
@@ -109,33 +137,32 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     /**
-     *
      * @param map  包含的查询条件   hasDept, departmentId, companyId
      * @param page 当前页码
-     * @param size  页面数据量
+     * @param size 页面数据量
      * @return
      */
     @Override
     public IPage<User> findAll(Map<String, Object> map, int page, int size) {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-       if(!StringUtils.isEmpty(map.get("companyId"))){
-           queryWrapper.eq(User::getCompanyId, map.get("companyId"));
-       }
-        if(!StringUtils.isEmpty(map.get("departmentId"))){
+        if (!StringUtils.isEmpty(map.get("companyId"))) {
+            queryWrapper.eq(User::getCompanyId, map.get("companyId"));
+        }
+        if (!StringUtils.isEmpty(map.get("departmentId"))) {
             queryWrapper.eq(User::getDepartmentId, map.get("departmentId"));
         }
-        if(!StringUtils.isEmpty(map.get("hasDept"))){
-            if( StringUtils.isEmpty(map.get("hasDept")) || "0".equals((String)map.get("hasDept"))){
+        if (!StringUtils.isEmpty(map.get("hasDept"))) {
+            if (StringUtils.isEmpty(map.get("hasDept")) || "0".equals((String) map.get("hasDept"))) {
                 // 没有部门限制
                 queryWrapper.isNull(User::getDepartmentId);
-            }else{
+            } else {
                 // 有部门限制
                 queryWrapper.isNotNull(User::getDepartmentId);
             }
         }
 
         IPage<User> myPage = new Page<>(page, size);
-        myPage = userDao.selectPage(myPage, queryWrapper );
+        myPage = userDao.selectPage(myPage, queryWrapper);
         return myPage;
     }
 

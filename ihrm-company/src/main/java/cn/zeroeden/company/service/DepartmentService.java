@@ -8,6 +8,14 @@ import java.util.List;
 public interface DepartmentService extends IService<Department> {
 
     /**
+     * 根据公司id和部门编码查询部门信息
+     * @param code 部门编码
+     * @param companyId 公司id
+     * @return
+     */
+    Department findByCode(String code, String companyId);
+
+    /**
      * 保存部门
      * @param department
      */
