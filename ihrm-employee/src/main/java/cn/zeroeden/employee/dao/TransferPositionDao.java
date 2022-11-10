@@ -11,6 +11,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface TransferPositionDao extends BaseMapper<EmployeeTransferPosition> {
 
-    @Select("select * from em_transferposition where user_id = #uid ")
+    @Select("select * from em_transferposition where user_id = #{uid} ")
     EmployeeTransferPosition findByUserId(String uid);
 }

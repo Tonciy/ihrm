@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface PositiveDao extends BaseMapper<EmployeePositive> {
-    @Select("select * from em_positive where user_id = #uid ")
+    @Select("select * from em_positive where user_id = #{uid} ")
     EmployeePositive findByUserId(String uid);
 }

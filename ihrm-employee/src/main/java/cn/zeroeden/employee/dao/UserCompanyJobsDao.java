@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface UserCompanyJobsDao extends BaseMapper<UserCompanyJobs> {
-    @Select("select * from em_user_company_jobs where user_id = #userId ")
+    @Select("select * from em_user_company_jobs where user_id = #{userId} ")
     UserCompanyJobs findByUserId(String userId);
 }

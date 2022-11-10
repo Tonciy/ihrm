@@ -11,6 +11,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface EmployeeResignationDao extends BaseMapper<EmployeeResignation> {
 
-    @Select("select * from em_resignation where user_id = #uid  ")
+    @Select("select * from em_resignation where user_id = #{uid}  ")
     EmployeeResignation findByUserId(String uid);
 }

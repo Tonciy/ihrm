@@ -63,10 +63,10 @@ public class UserController extends BaseController {
         Workbook workbook = new XSSFWorkbook(file.getInputStream());
         Sheet sheet = workbook.getSheetAt(0);
         ArrayList<User> users = new ArrayList<>();
-        for (int rowNum = 1; rowNum < sheet.getLastRowNum(); rowNum++) {
+        for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
             Row row = sheet.getRow(rowNum);
             Object[] values = new Object[row.getLastCellNum()];
-            for (int cellNum = 1; cellNum <= row.getLastCellNum(); cellNum++) {
+            for (int cellNum = 1; cellNum < row.getLastCellNum(); cellNum++) {
                 Cell cell = row.getCell(cellNum);
                 Object value = getCellValue(cell);
                 values[cellNum] = value;

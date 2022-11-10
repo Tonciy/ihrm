@@ -2,17 +2,26 @@ package cn.zeroeden.employee.controller;
 
 import cn.zeroeden.controller.BaseController;
 import cn.zeroeden.domain.employee.*;
+import cn.zeroeden.domain.employee.response.EmployeeReportResult;
 import cn.zeroeden.employee.service.*;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.entity.ResultCode;
 import cn.zeroeden.utils.BeanMapUtils;
+import cn.zeroeden.utils.DownloadUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -32,6 +41,75 @@ public class EmployeeController extends BaseController {
     @Autowired
     private ArchiveService archiveService;
 
+
+    /**
+     * 当月认识报表导出
+     *
+     * @param month 2018-02  这样的形式
+     * @throws Exception
+     */
+    @GetMapping("/export/{month}")
+    public void export(@PathVariable(name = "month") String month) throws Exception {
+        List<EmployeeReportResult> list = userCompanyPersonalService.findByReport(companyId, month);
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet();
+        String[] titles = {"编号", "姓名", "手机", "最高学历", "国家地区", "护照号", "籍贯",
+                "生日", "属相", "入职时间", "离职类型", "离职原因", "离职时间"};
+        XSSFRow row = sheet.createRow(0);
+        int titleIndex = 0;
+        for (String title : titles) {
+            XSSFCell cell = row.createCell(titleIndex++);
+            cell.setCellValue(title);
+        }
+        int rowIndex = 1;
+        Cell cell = null;
+        for (EmployeeReportResult report : list) {
+            XSSFRow dataRow = sheet.createRow(rowIndex++);
+            cell = dataRow.createCell(0);
+            cell.setCellValue(report.getUserId());
+//姓名
+            cell = dataRow.createCell(1);
+            cell.setCellValue(report.getUsername());
+//手机
+            cell = dataRow.createCell(2);
+            cell.setCellValue(report.getMobile());
+//最高学历
+            cell = dataRow.createCell(3);
+            cell.setCellValue(report.getTheHighestDegreeOfEducation());
+//国家地区
+            cell = dataRow.createCell(4);
+            cell.setCellValue(report.getNationalArea());
+//护照号
+            cell = dataRow.createCell(5);
+            cell.setCellValue(report.getPassportNo());
+//籍贯
+            cell = dataRow.createCell(6);
+            cell.setCellValue(report.getNativePlace());
+//生日
+            cell = dataRow.createCell(7);
+            cell.setCellValue(report.getBirthday());
+//属相
+            cell = dataRow.createCell(8);
+            cell.setCellValue(report.getZodiac());
+//入职时间
+            cell = dataRow.createCell(9);
+            cell.setCellValue(report.getTimeOfEntry());
+//离职类型
+            cell = dataRow.createCell(10);
+            cell.setCellValue(report.getTypeOfTurnover());
+//离职原因
+            cell = dataRow.createCell(11);
+            cell.setCellValue(report.getReasonsForLeaving());
+//离职时间
+            cell = dataRow.createCell(12);
+            cell.setCellValue(report.getResignationTime());
+
+        }
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        workbook.write(os);
+        new DownloadUtils().download(os, response, month + "人事报表.xlsx");
+
+    }
 
     /**
      * 员工个人信息保存
@@ -54,11 +132,11 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/{id}/personalInfo", method = RequestMethod.GET)
     public Result findPersonalInfo(@PathVariable(name = "id") String uid) throws Exception {
         UserCompanyPersonal info = userCompanyPersonalService.findById(uid);
-        if(info == null) {
+        if (info == null) {
             info = new UserCompanyPersonal();
             info.setUserId(uid);
         }
-        return new Result(ResultCode.SUCCESS,info);
+        return new Result(ResultCode.SUCCESS, info);
     }
 
     /**
@@ -82,12 +160,12 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/{id}/jobs", method = RequestMethod.GET)
     public Result findJobsInfo(@PathVariable(name = "id") String uid) throws Exception {
         UserCompanyJobs info = userCompanyJobsService.findById(super.userId);
-        if(info == null) {
+        if (info == null) {
             info = new UserCompanyJobs();
             info.setUserId(uid);
             info.setCompanyId(companyId);
         }
-        return new Result(ResultCode.SUCCESS,info);
+        return new Result(ResultCode.SUCCESS, info);
     }
 
     /**
@@ -106,11 +184,11 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/{id}/leave", method = RequestMethod.GET)
     public Result findLeave(@PathVariable(name = "id") String uid) throws Exception {
         EmployeeResignation resignation = resignationService.findById(uid);
-        if(resignation == null) {
+        if (resignation == null) {
             resignation = new EmployeeResignation();
             resignation.setUserId(uid);
         }
-        return new Result(ResultCode.SUCCESS,resignation);
+        return new Result(ResultCode.SUCCESS, resignation);
     }
 
     /**
@@ -137,11 +215,11 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/{id}/transferPosition", method = RequestMethod.GET)
     public Result findTransferPosition(@PathVariable(name = "id") String uid) throws Exception {
         UserCompanyJobs jobsInfo = userCompanyJobsService.findById(uid);
-        if(jobsInfo == null) {
+        if (jobsInfo == null) {
             jobsInfo = new UserCompanyJobs();
             jobsInfo.setUserId(uid);
         }
-        return new Result(ResultCode.SUCCESS,jobsInfo);
+        return new Result(ResultCode.SUCCESS, jobsInfo);
     }
 
     /**
@@ -159,11 +237,11 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/{id}/positive", method = RequestMethod.GET)
     public Result findPositive(@PathVariable(name = "id") String uid) throws Exception {
         EmployeePositive positive = positiveService.findById(uid);
-        if(positive == null) {
+        if (positive == null) {
             positive = new EmployeePositive();
             positive.setUserId(uid);
         }
-        return new Result(ResultCode.SUCCESS,positive);
+        return new Result(ResultCode.SUCCESS, positive);
     }
 
     /**
@@ -188,10 +266,10 @@ public class EmployeeController extends BaseController {
     @RequestMapping(value = "/archives", method = RequestMethod.GET)
     public Result findArchives(@RequestParam(name = "pagesize") Integer pagesize, @RequestParam(name = "page") Integer page, @RequestParam(name = "year") String year) throws Exception {
         Map map = new HashMap();
-        map.put("year",year);
-        map.put("companyId",companyId);
+        map.put("year", year);
+        map.put("companyId", companyId);
         Page<EmployeeArchive> searchPage = archiveService.findSearch(map, page, pagesize);
-        PageResult<EmployeeArchive> pr = new PageResult(searchPage.getTotal(),searchPage.getRecords());
-        return new Result(ResultCode.SUCCESS,pr);
+        PageResult<EmployeeArchive> pr = new PageResult(searchPage.getTotal(), searchPage.getRecords());
+        return new Result(ResultCode.SUCCESS, pr);
     }
 }
