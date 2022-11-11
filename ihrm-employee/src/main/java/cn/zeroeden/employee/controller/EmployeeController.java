@@ -11,15 +11,19 @@ import cn.zeroeden.utils.BeanMapUtils;
 import cn.zeroeden.utils.DownloadUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,69 +49,145 @@ public class EmployeeController extends BaseController {
     /**
      * 当月认识报表导出
      *
-     * @param month 2018-02  这样的形式
+     * @param month 2022-02  这样的形式
      * @throws Exception
      */
     @GetMapping("/export/{month}")
     public void export(@PathVariable(name = "month") String month) throws Exception {
         List<EmployeeReportResult> list = userCompanyPersonalService.findByReport(companyId, month);
-        XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet();
-        String[] titles = {"编号", "姓名", "手机", "最高学历", "国家地区", "护照号", "籍贯",
-                "生日", "属相", "入职时间", "离职类型", "离职原因", "离职时间"};
-        XSSFRow row = sheet.createRow(0);
-        int titleIndex = 0;
-        for (String title : titles) {
-            XSSFCell cell = row.createCell(titleIndex++);
-            cell.setCellValue(title);
+        // 使用模板构建
+        Resource resource = new ClassPathResource("excelTemplate\\hr-demo.xlsx");
+        FileInputStream fis = new FileInputStream(resource.getFile());
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+        XSSFSheet sheet = workbook.getSheetAt(0);
+        XSSFRow row = sheet.getRow(2);
+        // 抽取公共样式
+        CellStyle[] common = new CellStyle[row.getLastCellNum()];
+        for (int i = 0; i < row.getLastCellNum(); i++) {
+            XSSFCell cell = row.getCell(i);
+            common[i] = cell.getCellStyle();
         }
-        int rowIndex = 1;
+        int rowIndex = 2;
         Cell cell = null;
         for (EmployeeReportResult report : list) {
             XSSFRow dataRow = sheet.createRow(rowIndex++);
             cell = dataRow.createCell(0);
             cell.setCellValue(report.getUserId());
+            cell.setCellStyle(common[0]);
 //姓名
             cell = dataRow.createCell(1);
             cell.setCellValue(report.getUsername());
+            cell.setCellStyle(common[1]);
 //手机
             cell = dataRow.createCell(2);
             cell.setCellValue(report.getMobile());
+            cell.setCellStyle(common[2]);
 //最高学历
             cell = dataRow.createCell(3);
             cell.setCellValue(report.getTheHighestDegreeOfEducation());
+            cell.setCellStyle(common[3]);
 //国家地区
             cell = dataRow.createCell(4);
             cell.setCellValue(report.getNationalArea());
+            cell.setCellStyle(common[4]);
 //护照号
             cell = dataRow.createCell(5);
             cell.setCellValue(report.getPassportNo());
+            cell.setCellStyle(common[5]);
 //籍贯
             cell = dataRow.createCell(6);
             cell.setCellValue(report.getNativePlace());
+            cell.setCellStyle(common[6]);
 //生日
             cell = dataRow.createCell(7);
             cell.setCellValue(report.getBirthday());
+            cell.setCellStyle(common[7]);
 //属相
             cell = dataRow.createCell(8);
             cell.setCellValue(report.getZodiac());
+            cell.setCellStyle(common[8]);
 //入职时间
             cell = dataRow.createCell(9);
             cell.setCellValue(report.getTimeOfEntry());
+            cell.setCellStyle(common[9]);
 //离职类型
             cell = dataRow.createCell(10);
             cell.setCellValue(report.getTypeOfTurnover());
+            cell.setCellStyle(common[10]);
 //离职原因
             cell = dataRow.createCell(11);
             cell.setCellValue(report.getReasonsForLeaving());
+            cell.setCellStyle(common[11]);
 //离职时间
             cell = dataRow.createCell(12);
             cell.setCellValue(report.getResignationTime());
+            cell.setCellStyle(common[12]);
 
         }
+        // 设置标题
+        XSSFCell cell1 = sheet.getRow(0).getCell(0);
+        cell1.setCellValue(month + "人事报表");
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         workbook.write(os);
         new DownloadUtils().download(os, response, month + "人事报表.xlsx");
+        // 下方是传统构建
+//        XSSFWorkbook workbook = new XSSFWorkbook();
+//        XSSFSheet sheet = workbook.createSheet();
+//        String[] titles = {"编号", "姓名", "手机", "最高学历", "国家地区", "护照号", "籍贯",
+//                "生日", "属相", "入职时间", "离职类型", "离职原因", "离职时间"};
+//        XSSFRow row = sheet.createRow(0);
+//        int titleIndex = 0;
+//        for (String title : titles) {
+//            XSSFCell cell = row.createCell(titleIndex++);
+//            cell.setCellValue(title);
+//        }
+//        int rowIndex = 1;
+//        Cell cell = null;
+//        for (EmployeeReportResult report : list) {
+//            XSSFRow dataRow = sheet.createRow(rowIndex++);
+//            cell = dataRow.createCell(0);
+//            cell.setCellValue(report.getUserId());
+////姓名
+//            cell = dataRow.createCell(1);
+//            cell.setCellValue(report.getUsername());
+////手机
+//            cell = dataRow.createCell(2);
+//            cell.setCellValue(report.getMobile());
+////最高学历
+//            cell = dataRow.createCell(3);
+//            cell.setCellValue(report.getTheHighestDegreeOfEducation());
+////国家地区
+//            cell = dataRow.createCell(4);
+//            cell.setCellValue(report.getNationalArea());
+////护照号
+//            cell = dataRow.createCell(5);
+//            cell.setCellValue(report.getPassportNo());
+////籍贯
+//            cell = dataRow.createCell(6);
+//            cell.setCellValue(report.getNativePlace());
+////生日
+//            cell = dataRow.createCell(7);
+//            cell.setCellValue(report.getBirthday());
+////属相
+//            cell = dataRow.createCell(8);
+//            cell.setCellValue(report.getZodiac());
+////入职时间
+//            cell = dataRow.createCell(9);
+//            cell.setCellValue(report.getTimeOfEntry());
+////离职类型
+//            cell = dataRow.createCell(10);
+//            cell.setCellValue(report.getTypeOfTurnover());
+////离职原因
+//            cell = dataRow.createCell(11);
+//            cell.setCellValue(report.getReasonsForLeaving());
+////离职时间
+//            cell = dataRow.createCell(12);
+//            cell.setCellValue(report.getResignationTime());
+//
+//        }
+//        ByteArrayOutputStream os = new ByteArrayOutputStream();
+//        workbook.write(os);
+//        new DownloadUtils().download(os, response, month + "人事报表.xlsx");
 
     }
 
