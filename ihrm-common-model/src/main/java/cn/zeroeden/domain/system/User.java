@@ -98,6 +98,10 @@ public class User implements Serializable {
 
 
     /**
+     * 用户头像-Base64存储
+     */
+    private String staffPhoto;
+    /**
      * 用户身份--大概
      *  * saasAdmin：saas管理员具有所有权限
      *  * coAdmin：企业管理员

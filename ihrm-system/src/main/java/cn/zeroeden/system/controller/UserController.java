@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,11 @@ public class UserController extends BaseController {
     @Autowired
     private DepartmentFeignClient departmentFeignClient;
 
+    @PostMapping("/user/upload/{id}")
+    public Result upload(@PathVariable String id, @RequestParam(name = "file") MultipartFile file) throws IOException {
+        String imgUrl = userService.uploadImage(id, file);
+        return Result.SUCCESS(imgUrl);
+    }
 
     /**
      * 通过Excel，添加用户

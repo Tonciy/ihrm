@@ -14,12 +14,15 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.sun.org.apache.xml.internal.security.utils.Base64;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +39,17 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Autowired
     private DepartmentFeignClient departmentFeignClient;
+
+    @Override
+    public String uploadImage(String id, MultipartFile file) throws IOException {
+        User user = userDao.selectById(id);
+        String type = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
+        String encode = "data:image/" + type + ";base64,"+ Base64.encode(file.getBytes());
+        user.setStaffPhoto(encode);
+        userDao.updateById(user);
+        return encode;
+    }
+
     @Override
     @Transactional
     public void saveAll(List<User> users, String companyId, String companyName) throws Exception {

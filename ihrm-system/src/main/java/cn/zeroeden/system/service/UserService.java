@@ -3,7 +3,9 @@ package cn.zeroeden.system.service;
 import cn.zeroeden.domain.system.User;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -66,4 +68,12 @@ public interface UserService extends IService<User> {
      * @param roleIds 角色id集合
      */
      void assignRoles(String id, List<String> roleIds);
+
+    /**
+     * 保存用户头像
+     * @param id 用户id
+     * @param file 头像文件
+     * @return DataUrl
+     */
+    String uploadImage(String id, MultipartFile file) throws IOException;
 }
