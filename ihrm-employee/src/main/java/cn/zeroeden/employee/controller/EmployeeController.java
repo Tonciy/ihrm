@@ -10,12 +10,14 @@ import cn.zeroeden.entity.ResultCode;
 import cn.zeroeden.poi.ExcelExportUtil;
 import cn.zeroeden.utils.BeanMapUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import net.sf.jasperreports.engine.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +39,39 @@ public class EmployeeController extends BaseController {
     private PositiveService positiveService;
     @Autowired
     private ArchiveService archiveService;
+
+
+    /**
+     * 输出员工个人信息PDF报表
+     * @throws Exception
+     */
+    @GetMapping("/{id}/pdf")
+    public void pdf(@PathVariable("id") String id) throws Exception{
+        // 1. 引入jasper文件
+        Resource resource = new ClassPathResource("templates/profile.jasper");
+        FileInputStream fis = new FileInputStream(resource.getFile());
+        // 2. 构造数据
+        UserCompanyPersonal personal = userCompanyPersonalService.findById(id);
+        UserCompanyJobs jobs = userCompanyJobsService.findById(id);
+        String staffPhoto = "http://rla1xej99.hn-bkt.clouddn.com/" + id;
+        // 3. 填充PDF模板数据
+        HashMap<String, Object> parms = new HashMap<>();
+        parms.put("staffPhoto", staffPhoto);
+        Map<String, Object> map1 = BeanMapUtils.beanToMap(personal);
+        Map<String, Object> map2 = BeanMapUtils.beanToMap(jobs);
+        parms.putAll(map1);
+        parms.putAll(map2);
+        ServletOutputStream os = response.getOutputStream();
+        try {
+            JasperPrint print = JasperFillManager.fillReport(fis, parms, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(print, os);
+        }catch (JRException e){
+            e.printStackTrace();
+        }finally {
+            os.flush();
+        }
+    }
+
 
 
     /**
