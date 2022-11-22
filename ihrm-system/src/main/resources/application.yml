@@ -33,3 +33,14 @@ jwt:
   config:
     key: zero
     ttl: 3600
+
+# 百度云人脸识别配置
+ai:
+  appId: 15191935
+  apiKey: cyWSHgas93Vtdmt42OwbW8pu
+  secretKey: yf1GusMvvLBdOnyubfLubNyod9iEDEZW
+  imageType: BASE64
+  groupId: zero
+# 二维码生成的连接
+qr:
+  url: https://localhost:8080/#/facelogin

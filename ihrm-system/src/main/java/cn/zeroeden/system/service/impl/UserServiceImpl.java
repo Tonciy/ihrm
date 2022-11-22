@@ -9,6 +9,7 @@ import cn.zeroeden.system.dao.RoleDao;
 import cn.zeroeden.system.dao.UserDao;
 import cn.zeroeden.system.dao.UserRoleDao;
 import cn.zeroeden.system.service.UserService;
+import cn.zeroeden.system.utils.BaiduAiUtil;
 import cn.zeroeden.utils.IdWorker;
 import cn.zeroeden.utils.QiniuUploadUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -40,6 +41,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Autowired
     private DepartmentFeignClient departmentFeignClient;
 
+    @Autowired
+    private BaiduAiUtil baiduAiUtil;
     @Override
     public String uploadImage(String id, MultipartFile file) throws IOException {
         User user = userDao.selectById(id);
@@ -54,6 +57,17 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             user.setStaffPhoto(key);
         }
         userDao.updateById(user);
+
+        // 将图片存到百度云人脸库中--后面可以人脸登录-没充钱没得用-。-
+//        Boolean exist = baiduAiUtil.faceExist(id);
+//        String imgBase64 = Base64Util.encode(file.getBytes());
+//        if(exist){
+//            // 更新
+//            baiduAiUtil.faceUpdate(id, imgBase64);
+//        }else{
+//            // 注册
+//            baiduAiUtil.faceRegister(id,imgBase64 );
+//        }
         return key;
     }
 
