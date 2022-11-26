@@ -1,0 +1,31 @@
+#微服务注册到eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+
+server:
+  port: 9090
+#spring配置
+spring:
+  #1.应用配置
+  application:
+    name: ihrm-gateway #指定服务名
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ihrm?useUnicode=true&characterEncoding=utf8serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+
+#zuul配置
+zuul:
+  routes:
+    ihrm-company:         # 路由id，随便起
+      path: /company/**   # 拦截的路径
+      # url: http://127.0.0.1:9001  # 分发的地址
+      service-id: ihrm-company
+      strip-prefix: false # 不删除请求前缀

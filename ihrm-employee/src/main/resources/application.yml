@@ -26,9 +26,11 @@ mybatis-plus:
     db-config:
       # 雪花算法生成注解id
       id-type: ASSIGN_ID
-
 #微服务注册到eureka配置
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:6868/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
