@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @description:
  */
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "cn.zeroeden")
 @EnableZuulProxy
 @EnableDiscoveryClient  // 开启服务发现
 public class GatewayApplication {

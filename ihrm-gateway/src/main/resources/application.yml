@@ -19,6 +19,9 @@ spring:
     url: jdbc:mysql://localhost:3306/ihrm?useUnicode=true&characterEncoding=utf8serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
 
 
 #zuul配置
@@ -29,3 +32,24 @@ zuul:
       # url: http://127.0.0.1:9001  # 分发的地址
       service-id: ihrm-company
       strip-prefix: false # 不删除请求前缀
+      # 处理敏感头信息，请求路由后还能携带原来的额外请求头信息
+      sensitiveHeaders:
+      customSensitiveHeaders: true #对指定路由开启自定义敏感头
+    ihrm-system: #系统
+      path: /sys/** #配置请求URL的请求规则
+      serviceId: ihrm-system #指定Eureka注册中心中的服务id
+      stripPrefix: false
+      sensitiveHeaders:   #将指定路由的敏感头设置为空
+      customSensitiveHeaders: true #对指定路由开启自定义敏感头
+    ihrm-employee: #员工
+      path: /employees/** #配置请求URL的请求规则
+      serviceId: ihrm-employee #指定Eureka注册中心中的服务id
+      stripPrefix: false
+      sensitiveHeaders:   #将指定路由的敏感头设置为空
+      customSensitiveHeaders: true #对指定路由开启自定义敏感头
+    ihrm-social-securitys: #社保
+      path: /social_securitys/** #配置请求URL的请求规则
+      serviceId: ihrm-social-securitys #指定Eureka注册中心中的服务id
+      stripPrefix: false
+      sensitiveHeaders:   #将指定路由的敏感头设置为空
+      customSensitiveHeaders: true #对指定路由开启自定义敏感头

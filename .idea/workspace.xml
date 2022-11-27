@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/GatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/filter/LoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/shiro/ShiroConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-company/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-company/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-company/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-employee/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-employee/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-system/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/GatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/filter/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/filter/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,25 +64,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/ihrm-parent/ihrm-system/src/main/java/cn/zeroeden/system/service/impl&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;365fe8eca23b285ed18b20a7e690f7d3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-system/src/main/java/cn/zeroeden/system/service/impl",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "2c3cc9f2a970ce039e93f64aa80419ca"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\service\impl" />
@@ -101,6 +95,7 @@
       <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.zeroeden.gateway.shiro" />
       <recent name="cn.zeroeden.company.shiro" />
       <recent name="cn.zeroeden.system.controller" />
     </key>
@@ -181,8 +176,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.SystemApplication" />
         <item itemvalue="Spring Boot.CompanyApplication" />
+        <item itemvalue="Spring Boot.SystemApplication" />
         <item itemvalue="Spring Boot.EurekaApplication" />
         <item itemvalue="Application.TokenDemo" />
       </list>
@@ -246,7 +241,8 @@
       <workItem from="1669258736390" duration="10000" />
       <workItem from="1669259528945" duration="36000" />
       <workItem from="1669382340924" duration="594000" />
-      <workItem from="1669462360847" duration="3152000" />
+      <workItem from="1669462360847" duration="3199000" />
+      <workItem from="1669530498457" duration="2960000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -423,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669126431302</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="[gateway] 新增网关">
+      <created>1669465729798</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669465729798</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +468,8 @@
     <MESSAGE value="[sys] 用户头像使用七牛云OOS存储" />
     <MESSAGE value="[sys] jasper报表导出（七牛云存储有误）" />
     <MESSAGE value="[sys] 实现人脸登录（百度云要钱的。。买的话直接配置就能用）" />
-    <option name="LAST_COMMIT_MESSAGE" value="[sys] 实现人脸登录（百度云要钱的。。买的话直接配置就能用）" />
+    <MESSAGE value="[gateway] 新增网关" />
+    <option name="LAST_COMMIT_MESSAGE" value="[gateway] 新增网关" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

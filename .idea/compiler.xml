@@ -25,7 +25,7 @@
       <module name="ihrm-employee" options="-parameters" />
       <module name="ihrm-eureka" options="-parameters" />
       <module name="ihrm-gateway" options="-parameters" />
-      <module name="ihrm-parent" options="" />
+      <module name="ihrm-parent" options="-parameters" />
       <module name="ihrm-system" options="-parameters" />
     </option>
   </component>
