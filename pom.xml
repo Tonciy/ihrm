@@ -15,6 +15,7 @@
         <module>ihrm-employee</module>
         <module>ihrm-eureka</module>
         <module>ihrm-gateway</module>
+        <module>ihrm-social-securitys</module>
     </modules>
 
     <packaging>pom</packaging>

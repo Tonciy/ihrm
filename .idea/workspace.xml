@@ -5,12 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/shiro/ShiroConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/Archive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/ArchiveDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/CityPaymentItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/CompanySettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/PaymentItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/UserSocialSecurity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/UserSocialSecurityItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/SocialSecuritysApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client/EmployeeFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client/SystemFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDetailDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/CityPaymentItemDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/CompanySettingsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/PaymentItemDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/CompanySettingsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/PaymentItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/UserSocialService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/CompanySettingsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/PaymentItemServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/UserSocialServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/shiro/ShiroConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/test/java/cn/zeroeden/social/MyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/GatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/filter/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/java/cn/zeroeden/gateway/filter/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,42 +102,49 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-system/src/main/java/cn/zeroeden/system/service/impl",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.run.dashboard.notification": "false",
-    "spring.configuration.checksum": "2c3cc9f2a970ce039e93f64aa80419ca"
+    "spring.configuration.checksum": "5d2e5dd7c8683ce8d6de2d01afa6933f"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\service\impl" />
-      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\controller" />
-      <recent name="D:\Code\ihrm-parent\ihrm-system\src\main\java\cn\zeroeden\system\utils" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\company\response" />
-      <recent name="D:\Code\ihrm-parent\ihrm-employee\src\main\resources" />
+      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\client" />
+      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\service\impl" />
+      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\service" />
+      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\dao" />
+      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\socialSecuritys" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cn.zeroeden.social" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.zeroeden.social.shiro" />
       <recent name="cn.zeroeden.gateway.shiro" />
       <recent name="cn.zeroeden.company.shiro" />
       <recent name="cn.zeroeden.system.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GatewayApplication">
-    <configuration name="TokenDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.zeroeden.dem.TokenDemo" />
-      <module name="ihrm-common" />
+  <component name="RunManager" selected="JUnit.MyTest.test">
+    <configuration name="MyTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-social-securitys" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.zeroeden.dem.*" />
+          <option name="PATTERN" value="cn.zeroeden.social.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="cn.zeroeden.social" />
+      <option name="MAIN_CLASS_NAME" value="cn.zeroeden.social.MyTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,6 +195,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SocialSecuritysApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ihrm-social-securitys" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.social.SocialSecuritysApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ihrm-system" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.system.SystemApplication" />
@@ -175,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.CompanyApplication" />
+        <item itemvalue="JUnit.MyTest.test" />
         <item itemvalue="Spring Boot.SystemApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaApplication" />
-        <item itemvalue="Application.TokenDemo" />
+        <item itemvalue="Spring Boot.CompanyApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +284,13 @@
       <workItem from="1669259528945" duration="36000" />
       <workItem from="1669382340924" duration="594000" />
       <workItem from="1669462360847" duration="3199000" />
-      <workItem from="1669530498457" duration="2960000" />
+      <workItem from="1669530498457" duration="6279000" />
+      <workItem from="1669638903950" duration="65000" />
+      <workItem from="1669638984845" duration="20000" />
+      <workItem from="1669639137507" duration="34000" />
+      <workItem from="1669795080863" duration="1423000" />
+      <workItem from="1669798434076" duration="908000" />
+      <workItem from="1669800079680" duration="4985000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -426,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669465729798</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="[gateway] 通过网关实现认证授权校验">
+      <created>1669534383842</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669534383842</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +499,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init" />
     <MESSAGE value="SpringData改为MP" />
     <MESSAGE value="aa" />
     <MESSAGE value="部门实体CRUD" />
@@ -469,7 +523,8 @@
     <MESSAGE value="[sys] jasper报表导出（七牛云存储有误）" />
     <MESSAGE value="[sys] 实现人脸登录（百度云要钱的。。买的话直接配置就能用）" />
     <MESSAGE value="[gateway] 新增网关" />
-    <option name="LAST_COMMIT_MESSAGE" value="[gateway] 新增网关" />
+    <MESSAGE value="[gateway] 通过网关实现认证授权校验" />
+    <option name="LAST_COMMIT_MESSAGE" value="[gateway] 通过网关实现认证授权校验" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
