@@ -1,18 +1,19 @@
 package cn.zeroeden.social.controller;
 
 import cn.zeroeden.controller.BaseController;
-import cn.zeroeden.domain.socialSecuritys.CityPaymentItem;
-import cn.zeroeden.domain.socialSecuritys.CompanySettings;
-import cn.zeroeden.domain.socialSecuritys.UserSocialSecurity;
+import cn.zeroeden.domain.socialSecuritys.*;
 import cn.zeroeden.entity.PageResult;
 import cn.zeroeden.entity.Result;
 import cn.zeroeden.social.client.SystemFeignClient;
+import cn.zeroeden.social.dao.CompanySettingsDao;
+import cn.zeroeden.social.service.ArchiveService;
 import cn.zeroeden.social.service.CompanySettingsService;
 import cn.zeroeden.social.service.PaymentItemService;
 import cn.zeroeden.social.service.UserSocialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,13 @@ public class SocialSecuritysController extends BaseController {
 
     @Autowired
     private PaymentItemService paymentItemService;
+
+
+    @Autowired
+    private ArchiveService archiveService;
+
+    @Autowired
+    private CompanySettingsDao companySettingsDao;
     /**
      * 获取企业某个年月是否做了社保
      * @return
@@ -107,6 +115,70 @@ public class SocialSecuritysController extends BaseController {
     public Result saveUserSocailSecurity(@RequestBody UserSocialSecurity uss){
         userSocialService.save(uss);
         return Result.SUCCESS();
+    }
+
+    /**
+     * 查询某个公司年月份数据报表
+     * @param yearMonth 年月
+     * @param opType 类型 1：归档 其他： 未归档
+     * @return 装载数据报表
+     */
+    @GetMapping("/historys/{yearMonth}")
+    public Result historyDetail(@PathVariable String yearMonth, int opType){
+        List<ArchiveDetail> list = new ArrayList<>();
+        if(opType == 1){
+            // 查询未归档的数据
+            // 查询此公司的此年月应该生成的数据报表
+            list = archiveService.getReports(companyId, yearMonth);
+        }else{
+            // 查询已归档的数据
+            // 先根据公司id和年月查询 归档总结历史数据
+            Archive archive = archiveService.findArchiveByCompanyIDAndYearMonth(companyId, yearMonth);
+            // 如果归档历史存在，就查询明细
+            if(archive  != null){
+                list = archiveService.findAllDetailByArchiveId(archive.getId());
+            }
+        }
+        return Result.SUCCESS(list);
+    }
+
+    /**
+     * 对某个送死的某年月的员工社保数据进行归档
+     * @param yearMonth 年月
+     * @return 无
+     * @throws Exception 无
+     */
+    @PostMapping("/historys/{yearMonth}/archive")
+    public Result historyDetail(@PathVariable String  yearMonth) throws Exception{
+        archiveService.archive(companyId, yearMonth);
+        return Result.SUCCESS();
+    }
+
+    /**
+     * 为某个公司制作/切换报表周期
+     * @param yearMonth 年月
+     * @return 无
+     */
+    @PutMapping("/historys/{yearMonth}/newReport")
+    public Result saveSettings(@PathVariable String yearMonth){
+        // 获取到企业当前的年月报表进度
+        CompanySettings cs = companySettingsService.findById(companyId);
+        boolean flag = false;
+        if(cs == null){
+            cs = new CompanySettings();
+            flag = true;
+        }
+        cs.setCompanyId(companyId);
+        cs.setDataMonth(yearMonth);
+        if(flag){
+            // 这企业还没开始做报表，插入数据
+            companySettingsDao.insert(cs);
+        }else{
+            // 这且有之前就已经有做报表了，更新数据为下一个月
+            companySettingsDao.updateById(cs);
+        }
+        return Result.SUCCESS();
+
     }
 
 }

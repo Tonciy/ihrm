@@ -5,40 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/Archive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/ArchiveDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/CityPaymentItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/CompanySettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/PaymentItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/UserSocialSecurity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/socialSecuritys/UserSocialSecurityItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/SocialSecuritysApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client/EmployeeFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client/SystemFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDetailDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/CityPaymentItemDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/CompanySettingsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/PaymentItemDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/CompanySettingsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/PaymentItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/UserSocialService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/CompanySettingsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/PaymentItemServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/UserSocialServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/shiro/ShiroConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/test/java/cn/zeroeden/social/MyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,25 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "show.run.dashboard.notification": "false",
-    "spring.configuration.checksum": "5d2e5dd7c8683ce8d6de2d01afa6933f"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code/ihrm-parent/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5d2e5dd7c8683ce8d6de2d01afa6933f&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\client" />
@@ -290,7 +261,8 @@
       <workItem from="1669639137507" duration="34000" />
       <workItem from="1669795080863" duration="1423000" />
       <workItem from="1669798434076" duration="908000" />
-      <workItem from="1669800079680" duration="4985000" />
+      <workItem from="1669800079680" duration="5137000" />
+      <workItem from="1669810850832" duration="5002000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -481,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669534383842</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="[socialSecurity] 员工社保信息的基础CRU">
+      <created>1669805196884</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669805196884</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SpringData改为MP" />
     <MESSAGE value="aa" />
     <MESSAGE value="部门实体CRUD" />
     <MESSAGE value="新增system模块" />
@@ -524,7 +502,8 @@
     <MESSAGE value="[sys] 实现人脸登录（百度云要钱的。。买的话直接配置就能用）" />
     <MESSAGE value="[gateway] 新增网关" />
     <MESSAGE value="[gateway] 通过网关实现认证授权校验" />
-    <option name="LAST_COMMIT_MESSAGE" value="[gateway] 通过网关实现认证授权校验" />
+    <MESSAGE value="[socialSecurity] 员工社保信息的基础CRU" />
+    <option name="LAST_COMMIT_MESSAGE" value="[socialSecurity] 员工社保信息的基础CRU" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
