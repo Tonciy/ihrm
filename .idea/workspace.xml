@@ -5,11 +5,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/AttendanceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/controller/AttendanceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/controller/ConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/ArchiveMonthlyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/ArchiveMonthlyInfoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/AttendanceConfigDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/AttendanceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/DayOffConfigDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/DeductionDictDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/DeductionTypeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/ExtraDutyConfigDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/ExtraDutyRuleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/LeaveConfigDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/ArchiveService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/AtteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/ConfigurationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/ExcelImportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/ReprortService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/impl/ArchiveServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/impl/AtteServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/impl/ConfigurationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/impl/ExcelImportServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/java/cn/zeroeden/attendance/service/impl/ReprortServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-attendance/src/test/java/cn/zeroeden/attendance/MyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/base/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/ArchiveListBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/AtteItemBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/AtteReportMonthlyBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/AtteSalaryStatisticsBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/AtteStatisBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/AtteTotalsBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/bo/DaysMonthlyBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/ArchiveMonthly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/ArchiveMonthlyInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/Attendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/AttendanceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/DayOffConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/DeductionDict.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/DeductionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/ExtraDutyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/ExtraDutyRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/LeaveConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/entity/ReportItemVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/enums/DeductionEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/enums/LeaveTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/resp/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ArchiveInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ArchiveItemVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ArchiveMonthlyVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ArchiveVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/AttePageVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/AtteSalaryStatisticsVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/AtteUploadVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/AtteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ConfigVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ExtDutyVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ExtWorkVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/attendance/vo/ReportVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/utils/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/poi/ExcelImportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/poi/ExcelImportUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/controller/SocialSecuritysController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/UserSocialSecurityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/dao/ArchiveDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/ArchiveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/main/java/cn/zeroeden/social/service/impl/ArchiveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ihrm-social-securitys/src/test/java/cn/zeroeden/social/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-social-securitys/src/test/java/cn/zeroeden/social/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,32 +131,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/ihrm-parent/ihrm-social-securitys/src/main/java/cn/zeroeden/social/client&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;5d2e5dd7c8683ce8d6de2d01afa6933f&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-common/src/main/java/cn/zeroeden/utils",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "a6a5dbdac89b7cb7d1fabcddf23e39d5"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\client" />
-      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\service\impl" />
-      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\service" />
-      <recent name="D:\Code\ihrm-parent\ihrm-social-securitys\src\main\java\cn\zeroeden\social\dao" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\socialSecuritys" />
+      <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
+      <recent name="D:\Code\ihrm-parent\ihrm-attendance\src\main\java\cn\zeroeden\attendance\service\impl" />
+      <recent name="D:\Code\ihrm-parent\ihrm-attendance\src\main\java\cn\zeroeden\attendance\service" />
+      <recent name="D:\Code\ihrm-parent\ihrm-attendance\src\main\java\cn\zeroeden\attendance\dao" />
+      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\attendance" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
@@ -103,7 +171,23 @@
       <recent name="cn.zeroeden.system.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyTest.test">
+  <component name="RunManager" selected="JUnit.MyTest.test (1)">
+    <configuration name="MyTest.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-attendance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zeroeden.attendance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.zeroeden.attendance" />
+      <option name="MAIN_CLASS_NAME" value="cn.zeroeden.attendance.MyTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ihrm-social-securitys" />
       <extension name="coverage">
@@ -120,15 +204,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompanyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ihrm-company" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.company.CompanyApplication" />
+    <configuration name="MyTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-social-securitys" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.zeroeden.company.*" />
+          <option name="PATTERN" value="cn.zeroeden.social.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="cn.zeroeden.social" />
+      <option name="MAIN_CLASS_NAME" value="cn.zeroeden.social.MyTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ihrm-social-securitys" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zeroeden.social.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.zeroeden.social" />
+      <option name="MAIN_CLASS_NAME" value="cn.zeroeden.social.MyTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AttendanceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ihrm-attendance" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.attendance.AttendanceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,32 +246,6 @@
     <configuration name="EmployeeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ihrm-employee" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.employee.EmployeeApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ihrm-eureka" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.eureka.EurekaApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.zeroeden.eureka.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ihrm-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.gateway.GatewayApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.zeroeden.gateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +272,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTest.test (1)" />
+        <item itemvalue="JUnit.MyTest.test2" />
+        <item itemvalue="JUnit.MyTest.test1" />
         <item itemvalue="JUnit.MyTest.test" />
         <item itemvalue="Spring Boot.SystemApplication" />
-        <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.EurekaApplication" />
-        <item itemvalue="Spring Boot.CompanyApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +346,11 @@
       <workItem from="1669795080863" duration="1423000" />
       <workItem from="1669798434076" duration="908000" />
       <workItem from="1669800079680" duration="5137000" />
-      <workItem from="1669810850832" duration="5002000" />
+      <workItem from="1669810850832" duration="5182000" />
+      <workItem from="1669984326056" duration="243000" />
+      <workItem from="1670036281228" duration="3978000" />
+      <workItem from="1670049794052" duration="2692000" />
+      <workItem from="1670053416267" duration="5856000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -460,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669805196884</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[socialSecurity] 员工社保报表信息">
+      <created>1669816186694</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669816186694</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="aa" />
     <MESSAGE value="部门实体CRUD" />
     <MESSAGE value="新增system模块" />
     <MESSAGE value="[system] 新增RBAC实体类" />
@@ -503,7 +597,8 @@
     <MESSAGE value="[gateway] 新增网关" />
     <MESSAGE value="[gateway] 通过网关实现认证授权校验" />
     <MESSAGE value="[socialSecurity] 员工社保信息的基础CRU" />
-    <option name="LAST_COMMIT_MESSAGE" value="[socialSecurity] 员工社保信息的基础CRU" />
+    <MESSAGE value="[socialSecurity] 员工社保报表信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="[socialSecurity] 员工社保报表信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

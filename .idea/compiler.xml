@@ -14,19 +14,21 @@
         <module name="ihrm-social-securitys" />
         <module name="ihrm-eureka" />
         <module name="ihrm-common" />
+        <module name="ihrm-attendance" />
         <module name="ihrm-gateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ihrm-attendance" options="-parameters" />
       <module name="ihrm-common" options="-parameters" />
       <module name="ihrm-common-model" options="-parameters" />
       <module name="ihrm-company" options="-parameters" />
       <module name="ihrm-employee" options="-parameters" />
       <module name="ihrm-eureka" options="-parameters" />
       <module name="ihrm-gateway" options="-parameters" />
-      <module name="ihrm-parent" options="-parameters" />
+      <module name="ihrm-parent" options="" />
       <module name="ihrm-social-securitys" options="-parameters" />
       <module name="ihrm-system" options="-parameters" />
     </option>

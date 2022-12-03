@@ -143,12 +143,12 @@ public class SocialSecuritysController extends BaseController {
     }
 
     /**
-     * 对某个送死的某年月的员工社保数据进行归档
+     * 对某个公司的某年月的员工社保数据进行归档
      * @param yearMonth 年月
      * @return 无
      * @throws Exception 无
      */
-    @PostMapping("/historys/{yearMonth}/archive")
+    @PutMapping("/historys/{yearMonth}/archive")
     public Result historyDetail(@PathVariable String  yearMonth) throws Exception{
         archiveService.archive(companyId, yearMonth);
         return Result.SUCCESS();
@@ -179,6 +179,30 @@ public class SocialSecuritysController extends BaseController {
         }
         return Result.SUCCESS();
 
+    }
+
+    /**
+     * 获取某个公司的某年的历史每个月的社保总归档数据
+     * @param year 年份
+     * @return 社保总归档数据集合
+     * @throws Exception 统一处理
+     */
+    @GetMapping("/historys/{year}/list")
+    public Result historyList(@PathVariable String year) throws Exception{
+        List<Archive> list = archiveService.findArchiveByYearAndCompnayId(companyId, year);
+        return Result.SUCCESS(list);
+    }
+
+    /**
+     * 根据用户id和年月查询此用户在某年月的社保归档数据明细
+     * @param userId 用户id
+     * @param yearMonth 年月
+     * @return 此用户在某年月的社保归档数据明细
+     */
+    @GetMapping("/historys/data")
+    public Result histroysData(String userId,String yearMonth){
+        ArchiveDetail data = archiveService.findUserArchiveDetailByUserIdAndYearMonth(userId, yearMonth);
+        return Result.SUCCESS(data);
     }
 
 }

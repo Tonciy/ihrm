@@ -180,4 +180,18 @@ public class ArchiveServiceImpl extends ServiceImpl<ArchiveDao, Archive> impleme
         vo.setProvidentFundMonth(yearMonth);
     }
 
+
+    @Override
+    public List<Archive> findArchiveByYearAndCompnayId(String companyId, String year) {
+        return archiveDao.findListByCompanyIdAndYear(companyId, year);
+    }
+
+    @Override
+    public ArchiveDetail findUserArchiveDetailByUserIdAndYearMonth(String userId, String yearMonth) {
+        LambdaQueryWrapper<ArchiveDetail> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ArchiveDetail::getUserId, userId);
+        queryWrapper.eq(ArchiveDetail::getYearsMonth, yearMonth);
+        ArchiveDetail data = archiveDetailDao.selectOne(queryWrapper);
+        return data;
+    }
 }

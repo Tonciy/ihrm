@@ -36,4 +36,20 @@ public interface ArchiveService extends IService<Archive> {
      * @param yearMonth 年月
      */
     void archive(String companyId, String yearMonth);
+
+    /**
+     * 根据公司id和年份查询某公司的历史社保归档
+     * @param companyId 公司id
+     * @param year 年份
+     * @return 此公司某年份每个月的历史社保归档集合
+     */
+    List<Archive> findArchiveByYearAndCompnayId(String companyId, String year);
+
+    /**
+     * 根据用户id和年月查询此用户在某年月的社保归档数据明细
+     * @param userId 用户
+     * @param yearMonth 年月
+     * @return 用户的社保归档数据明细
+     */
+    ArchiveDetail findUserArchiveDetailByUserIdAndYearMonth(String userId, String yearMonth);
 }
