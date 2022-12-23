@@ -27,6 +27,14 @@ spring:
 #zuul配置
 zuul:
   routes:
+    ihrm-salarys: # 路由id，随便起
+      path: /salarys/**   # 拦截的路径
+      # url: http://127.0.0.1:9001  # 分发的地址
+      service-id: ihrm-salarys
+      strip-prefix: false # 不删除请求前缀
+      # 处理敏感头信息，请求路由后还能携带原来的额外请求头信息
+      sensitiveHeaders:
+      customSensitiveHeaders: true #对指定路由开启自定义敏感头
     ihrm-company:         # 路由id，随便起
       path: /company/**   # 拦截的路径
       # url: http://127.0.0.1:9001  # 分发的地址

@@ -17,6 +17,7 @@
         <module>ihrm-gateway</module>
         <module>ihrm-social-securitys</module>
         <module>ihrm-attendance</module>
+        <module>ihrm-salarys</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ihrm-employee" />
+        <module name="ihrm-salarys" />
         <module name="ihrm-company" />
         <module name="ihrm-system" />
         <module name="ihrm-common-model" />
@@ -29,6 +30,7 @@
       <module name="ihrm-eureka" options="-parameters" />
       <module name="ihrm-gateway" options="-parameters" />
       <module name="ihrm-parent" options="" />
+      <module name="ihrm-salarys" options="-parameters" />
       <module name="ihrm-social-securitys" options="-parameters" />
       <module name="ihrm-system" options="-parameters" />
     </option>

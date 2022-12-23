@@ -1,0 +1,39 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: ihrm-salarys #指定服务名
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ihrm?useUnicode=true&characterEncoding=utf8serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 雪花算法生成注解id
+      id-type: ASSIGN_ID
+
+#微服务注册到eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+
+# token 配置
+jwt:
+  config:
+    key: zero
+    ttl: 3600
+

@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/ihrm-employee" />
     <file type="web" url="file://$PROJECT_DIR$/ihrm-employee/ihrm-employee" />
     <file type="web" url="file://$PROJECT_DIR$/ihrm-eureka" />
+    <file type="web" url="file://$PROJECT_DIR$/ihrm-salarys" />
     <file type="web" url="file://$PROJECT_DIR$/ihrm-social-securitys" />
   </component>
   <component name="MavenProjectsManager">
