@@ -64,4 +64,34 @@ public class ArchiveServiceImpl  implements ArchiveService {
         archiveMonthly.setIsArchived(0);
         archiveMonthlyDao.insert(archiveMonthly);
     }
+
+    @Override
+    public List<ArchiveMonthly> findReportsByYear(String year, String companyId) {
+        LambdaQueryWrapper<ArchiveMonthly> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ArchiveMonthly::getCompanyId, companyId);
+        queryWrapper.eq(ArchiveMonthly::getArchiveYear, year);
+        return archiveMonthlyDao.selectList(queryWrapper);
+    }
+
+    @Override
+    public List<ArchiveMonthlyInfo> findMonthlyInfoByAmid(String id) {
+        LambdaQueryWrapper<ArchiveMonthlyInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ArchiveMonthlyInfo::getAtteArchiveMonthlyId, id);
+        return archiveMonthlyInfoDao.selectList(queryWrapper);
+    }
+
+    /**
+     * 查询用户的已归档考勤数据
+     *
+     * @param userId    用户id
+     * @param yearMonth 年月
+     * @return 数据
+     */
+    @Override
+    public ArchiveMonthlyInfo findUserArchiveDetail(String userId, String yearMonth) {
+        LambdaQueryWrapper<ArchiveMonthlyInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ArchiveMonthlyInfo::getUserId, userId);
+        queryWrapper.eq(ArchiveMonthlyInfo::getYearLeaveDays, yearMonth);
+        return archiveMonthlyInfoDao.selectOne(queryWrapper);
+    }
 }

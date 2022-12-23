@@ -4,6 +4,7 @@ import cn.zeroeden.attendance.service.ArchiveService;
 import cn.zeroeden.attendance.service.AtteService;
 import cn.zeroeden.attendance.service.ExcelImportService;
 import cn.zeroeden.controller.BaseController;
+import cn.zeroeden.domain.attendance.entity.ArchiveMonthly;
 import cn.zeroeden.domain.attendance.entity.ArchiveMonthlyInfo;
 import cn.zeroeden.domain.attendance.entity.Attendance;
 import cn.zeroeden.entity.Result;
@@ -95,5 +96,52 @@ public class AttendanceController extends BaseController {
         return Result.SUCCESS();
     }
 
+    /**
+     * 新建考勤报表
+     * @param yearMonth 新建考勤报表的年份
+     * @return 无
+     * @throws Exception 统一
+     */
+    @GetMapping("/newReports")
+    public Result newReports(String  yearMonth) throws Exception{
+        atteService.newReports(yearMonth, companyId);
+        return Result.SUCCESS();
+    }
 
+    /**
+     * 查询归档历史列表
+     * @param year 年份
+     * @return 无
+     * @throws Exception 统一
+     */
+    @GetMapping("/reports/year")
+    public Result findReportsByYear(String year) throws Exception{
+        List<ArchiveMonthly> list = archiveService.findReportsByYear(year, companyId);
+        return Result.SUCCESS(list);
+    }
+
+    /**
+     * 查询某个月的考勤归档详情
+     * @param id 主表id
+     * @return 数据
+     * @throws Exception 统一
+     */
+    @GetMapping("/reports/{id}")
+    public Result findInfosById(@PathVariable String id) throws Exception{
+        List<ArchiveMonthlyInfo> list = archiveService.findMonthlyInfoByAmid(id);
+        return Result.SUCCESS(list);
+    }
+
+    /**
+     * 根据用户id和年月查询已归档的用户考勤数据
+     * @param userId 用户id
+     * @param yearMonth 年月
+     * @return 用户的已经归档的考勤数据
+     * @throws Exception 统一
+     */
+    @GetMapping("/archive/{userId}/{yearMonth}")
+    public Result historyData(@PathVariable String userId, @PathVariable String yearMonth) throws Exception{
+        ArchiveMonthlyInfo info = archiveService.findUserArchiveDetail(userId, yearMonth);
+        return Result.SUCCESS(info);
+    }
 }

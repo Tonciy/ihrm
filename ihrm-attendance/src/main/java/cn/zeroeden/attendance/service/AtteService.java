@@ -33,4 +33,11 @@ public interface AtteService extends IService<Attendance> {
      * @return 具体数据
      */
     List<ArchiveMonthlyInfo> getReports(String atteDate, String companyId);
+
+    /**
+     * 新建新的月份的考勤报表
+     * @param yearMonth 年月
+     * @param companyId 公司id
+     */
+    void newReports(String yearMonth, String companyId);
 }

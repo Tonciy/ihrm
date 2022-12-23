@@ -139,4 +139,13 @@ public class AtteServiceImpl extends ServiceImpl<AttendanceDao, Attendance> impl
         }
         return list;
     }
+
+    @Override
+    public void newReports(String yearMonth, String companyId) {
+        LambdaQueryWrapper<CompanySettings> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(CompanySettings::getCompanyId, companyId);
+        CompanySettings settings = companySettingsDao.selectOne(queryWrapper);
+        settings.setDataMonth(yearMonth);
+        companySettingsDao.update(settings, queryWrapper);
+    }
 }
