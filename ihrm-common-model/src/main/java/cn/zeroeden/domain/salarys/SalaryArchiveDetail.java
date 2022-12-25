@@ -1,6 +1,8 @@
 package cn.zeroeden.domain.salarys;
 
+import cn.zeroeden.domain.attendance.entity.ArchiveMonthlyInfo;
 import cn.zeroeden.domain.poi.ExcelAttribute;
+import cn.zeroeden.domain.socialSecuritys.ArchiveDetail;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,14 +10,25 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Map;
 
+import static java.math.BigDecimal.ROUND_HALF_UP;
 
 @TableName("sa_archive_detail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SalaryArchiveDetail implements Serializable {
+
     private static final long serialVersionUID = 6021094301665428271L;
+
+	public SalaryArchiveDetail(String userId, String mobile, String username, String departmentName) {
+		this.userId = userId;
+		this.mobile = mobile;
+		this.username = username;
+		this.departmentName = departmentName;
+	}
+
     /**
      * id
      */
@@ -290,9 +303,10 @@ public class SalaryArchiveDetail implements Serializable {
     @ExcelAttribute(sort = 51)
     private Integer paymentMonths;
 
-    public BigDecimal getProvidentFundEnterprises() {
-    	return this.providentFundEnterprises == null ? new BigDecimal(0) : this.providentFundEnterprises;
-    }
+
+	public BigDecimal getProvidentFundEnterprises() {
+		return this.providentFundEnterprises == null ? new BigDecimal(0) : this.providentFundEnterprises;
+	}
 
 	public BigDecimal getSocialSecurityEnterprise() {
 		return this.socialSecurityEnterprise == null ? new BigDecimal(0) : this.socialSecurityEnterprise;
@@ -310,11 +324,142 @@ public class SalaryArchiveDetail implements Serializable {
 	}
 
 	public BigDecimal getEntTotal() {
-    	return getProvidentFundEnterprises().add(getSocialSecurityEnterprise());
+		return getProvidentFundEnterprises().add(getSocialSecurityEnterprise());
 	}
 
 	public BigDecimal getPerTotal() {
 		return getSocialSecurityIndividual().add(getProvidentFundIndividual());
 	}
 
+
+	//设置用户属性
+	public void setUser(Map map) {
+		this.username = map.get("username").toString();
+		this.departmentName = map.get("departmentName").toString();
+		this.mobile = map.get("mobile").toString();
+		this.userId = map.get("id").toString();
+		this.workNumber = (String)map.get("workNumber").toString();
+		this.inServiceStatus = map.get("inServiceStatus").toString();
+	}
+
+	//设置社保属性
+	public void setSocialInfo(ArchiveDetail socialInfo) {
+		this.providentFundIndividual = socialInfo.getProvidentFundIndividual();
+		this.providentFundEnterprises = socialInfo.getProvidentFundEnterprises();
+		this.socialSecurityEnterprise = socialInfo.getSocialSecurityEnterprise();
+		this.socialSecurityIndividual = socialInfo.getSocialSecurityIndividual();
+		//社保合计
+		this.socialSecurityProvidentFundEnterprises =  this.providentFundEnterprises.add(this.socialSecurityEnterprise);
+	}
+
+	//设置考勤属性
+	public void setAtteInfo(ArchiveMonthlyInfo atteInfo) {
+		//员工考勤天数
+		this.officialSalaryDays = new BigDecimal(atteInfo.getSalaryOfficialDays());
+	}
+
+	//设置员工工资属性
+	public void setUserSalary(UserSalary userSalary) {
+		if(userSalary != null) {
+			this.currentSalaryTotalBase = userSalary.getCurrentBasicSalary().add(userSalary.getCurrentPostWage());
+			this.currentBaseSalary = userSalary.getCurrentBasicSalary();
+			this.baseSalaryByMonth = userSalary.getCurrentBasicSalary();
+		}else{
+			this.currentSalaryTotalBase = BigDecimal.ZERO;
+			this.currentBaseSalary =BigDecimal.ZERO;
+			this.baseSalaryByMonth = BigDecimal.ZERO;
+		}
+	}
+
+	// 计算工资
+	public void calSalary(Settings settings) {
+		//计算福利津贴
+		BigDecimal money = BigDecimal.ZERO;
+		if(settings.getCommunicationSubsidyScheme() ==3) {
+			money = money.add(settings.getCommunicationSubsidyAmount());
+		}else{
+			money = money.add(settings.getCommunicationSubsidyAmount().multiply(this.officialSalaryDays));
+		}
+		if(settings.getHousingSubsidyScheme() ==3) {
+			money = money.add(settings.getHousingSubsidyAmount());
+		}else{
+			money = money.add(settings.getHousingSubsidyAmount().multiply(this.officialSalaryDays));
+		}
+		if(settings.getLunchAllowanceScheme() ==3) {
+			money = money.add(settings.getLunchAllowanceAmount());
+		}else{
+			money = money.add(settings.getLunchAllowanceAmount().multiply(this.officialSalaryDays));
+		}
+		if(settings.getTransportationSubsidyScheme() ==3) {
+			money = money.add(settings.getTransportationSubsidyAmount());
+		}else{
+			money = money.add(settings.getTransportationSubsidyAmount().multiply(this.officialSalaryDays));
+		}
+
+		//津贴
+		this.salaryChangeAmount = money;
+
+		//计算考勤扣款
+		BigDecimal attendanceMoney = this.currentSalaryTotalBase;
+
+		// 20 , 10000, 500  19
+		if(officialSalaryDays.compareTo(new BigDecimal(21.75))<=0) {
+			attendanceMoney = this.currentSalaryTotalBase.
+					divide(new BigDecimal(21.75),2,ROUND_HALF_UP).
+					multiply(this.officialSalaryDays);
+			this.attendanceDeductionMonthly = this.currentSalaryTotalBase.subtract(attendanceMoney).toString();
+		}else{
+			this.attendanceDeductionMonthly = "0";
+		}
+
+
+		this.currentSalaryTotalBase = attendanceMoney.add(money);
+
+
+		//计算应纳税工资 (岗位工资 + 基本工资 + 补助 - 缴纳公积金和社保)
+
+		this.salaryByTax = this.currentSalaryTotalBase.subtract(this.providentFundIndividual).subtract(this.socialSecurityIndividual);
+		this.salaryByTax = this.salaryByTax.compareTo(BigDecimal.ZERO)>=0?this.salaryByTax:BigDecimal.ZERO;
+
+		//计算税(扣除员工社保和员工公积金部门)
+		this.tax = getTax(salaryByTax);
+
+		//计算实发工资
+		this.payment = attendanceMoney.subtract(tax);
+		this.payment = this.payment.compareTo(BigDecimal.ZERO)>=0?this.payment:BigDecimal.ZERO;
+
+	}
+
+	private BigDecimal getTax(BigDecimal salary) {
+		//salary * 阶梯税率 - 速算扣除数
+		BigDecimal easyNum = new BigDecimal(0);
+		BigDecimal stageNum = new BigDecimal(0.03);
+		if(salary.doubleValue() <=3500){
+			return BigDecimal.ZERO;
+		} else if (salary.doubleValue() > 1500) {
+			easyNum = new BigDecimal(105);
+			stageNum = new BigDecimal(0.1);
+		} else if (salary.doubleValue() > 4500) {
+			easyNum = new BigDecimal(555);
+			stageNum = new BigDecimal(0.2);
+		} else if (salary.doubleValue() > 9000) {
+			easyNum = new BigDecimal(1005);
+			stageNum = new BigDecimal(0.25);
+		} else if (salary.doubleValue() > 35000) {
+			easyNum = new BigDecimal(2755);
+			stageNum = new BigDecimal(0.3);
+		} else if (salary.doubleValue() > 55000) {
+			easyNum = new BigDecimal(5505);
+			stageNum = new BigDecimal(0.35);
+		} else if (salary.doubleValue() > 55000) {
+			easyNum = new BigDecimal(5505);
+			stageNum = new BigDecimal(0.35);
+		} else if (salary.doubleValue() > 80000) {
+			easyNum = new BigDecimal(13505);
+			stageNum = new BigDecimal(0.45);
+		}
+		salary = salary.multiply(stageNum);
+		salary = salary.subtract(easyNum);
+		return salary;
+	}
 }

@@ -139,7 +139,7 @@ public class AttendanceController extends BaseController {
      * @return 用户的已经归档的考勤数据
      * @throws Exception 统一
      */
-    @GetMapping("/archive/{userId}/{yearMonth}")
+    @GetMapping("/historys/archiveDetail/{userId}/{yearMonth}")
     public Result historyData(@PathVariable String userId, @PathVariable String yearMonth) throws Exception{
         ArchiveMonthlyInfo info = archiveService.findUserArchiveDetail(userId, yearMonth);
         return Result.SUCCESS(info);
