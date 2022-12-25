@@ -4,37 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/CompanySettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/SalaryArchive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/SalaryArchiveDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/UserSalary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-common-model/src/main/java/cn/zeroeden/domain/salarys/UserSalaryChange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/SalarysApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/controller/ArchiveController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/controller/CompanySettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/controller/SalaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/controller/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/ArchiveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/ArchiveDetailDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/CompanySettingsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/SettingsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/UserSalaryChangeDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/dao/UserSalaryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/ArchiveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/CompanySettingsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/SalaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/SettingsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/impl/ArchiveServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/impl/CompanySettingsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/impl/SalaryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/java/cn/zeroeden/salarys/service/impl/SettingsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ihrm-salarys/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="d739a143-1d3b-42b6-9774-d2fd805db748" name="Default Changelist" comment="[ad] 薪资模块报表构造">
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/AuditApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/conf/AuditDatasourceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/conf/JpaRepositoriesConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/controller/ProcessController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/dao/ProcUserGroupDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/entity/ProcUserGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/service/ProcessService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/java/cn/zeroeden/audit/service/impl/ProcesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-audit/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/constant/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/constant/FormOfEmploymentEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ihrm-common/src/main/java/cn/zeroeden/constant/TaxCountingEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ihrm-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -54,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,6 +79,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -101,22 +88,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-salarys/src/main/java/cn/zeroeden/salarys/controller",
+    "last_opened_file_path": "D:/Code/ihrm-parent/ihrm-common/src/main/java/cn/zeroeden/constant",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "MavenSettings",
     "show.run.dashboard.notification": "false",
-    "spring.configuration.checksum": "a6a5dbdac89b7cb7d1fabcddf23e39d5"
+    "spring.configuration.checksum": "3d92734b4a05613ab2011ec9eb1d33ae"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\ihrm-parent\ihrm-salarys\src\main\java\cn\zeroeden\salarys\controller" />
-      <recent name="D:\Code\ihrm-parent\ihrm-salarys\src\main\java\cn\zeroeden\salarys\service\impl" />
-      <recent name="D:\Code\ihrm-parent\ihrm-salarys\src\main\java\cn\zeroeden\salarys\service" />
-      <recent name="D:\Code\ihrm-parent\ihrm-salarys\src\main\java\cn\zeroeden\salarys\dao" />
-      <recent name="D:\Code\ihrm-parent\ihrm-common-model\src\main\java\cn\zeroeden\domain\salarys" />
+      <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\constant" />
+      <recent name="D:\Code\ihrm-parent\ihrm-audit" />
+      <recent name="D:\Code\ihrm-parent\ihrm-audit\src\main\java\cn\zeroeden\audit\entity" />
+      <recent name="D:\Code\ihrm-parent\ihrm-audit\src\main\java\cn\zeroeden\audit\dao" />
+      <recent name="D:\Code\ihrm-parent\ihrm-audit\src\main\java\cn\zeroeden\audit\conf" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\ihrm-parent\ihrm-common\src\main\java\cn\zeroeden\utils" />
@@ -131,7 +118,7 @@
       <recent name="cn.zeroeden.system.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyTest.test (1)">
+  <component name="RunManager" selected="Spring Boot.AuditApplication">
     <configuration name="MyTest.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ihrm-attendance" />
       <extension name="coverage">
@@ -203,9 +190,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuditApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ihrm-audit" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.audit.AuditApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EmployeeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ihrm-employee" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.employee.EmployeeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalarysApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ihrm-salarys" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.zeroeden.salarys.SalarysApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -316,7 +317,10 @@
       <workItem from="1670592227516" duration="18000" />
       <workItem from="1671329536843" duration="3711000" />
       <workItem from="1671605355368" duration="72000" />
-      <workItem from="1671776663252" duration="7037000" />
+      <workItem from="1671776663252" duration="7792000" />
+      <workItem from="1671949377463" duration="3741000" />
+      <workItem from="1671953746614" duration="741000" />
+      <workItem from="1671958954935" duration="3864000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1666423426481</created>
@@ -542,7 +546,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671780197423</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="[salarys] 薪资模块基础CURD">
+      <created>1671783851398</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1671783851398</updated>
+    </task>
+    <task id="LOCAL-00034" summary="[salarys] 薪资模块报表构造">
+      <created>1671952711437</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1671952711437</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,8 +578,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[system] 用户、角色CRUD" />
-    <MESSAGE value="[system] 权限CRUD（根据不同类别来做）" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[system] 为用户分配角色，为角色分配资源（注意还没做1-n,n-n查询）" />
     <MESSAGE value="[system] 使用jwt做登录接口" />
     <MESSAGE value="[system] 增加拦截器进行认证并初始基础数据" />
@@ -585,7 +602,9 @@
     <MESSAGE value="[attendance] 考勤模块配置项基础" />
     <MESSAGE value="[attendance] 考勤模块基础CRUD" />
     <MESSAGE value="[attendance] 考勤模块完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="[attendance] 考勤模块完善" />
+    <MESSAGE value="[salarys] 薪资模块基础CURD" />
+    <MESSAGE value="[salarys] 薪资模块报表构造" />
+    <option name="LAST_COMMIT_MESSAGE" value="[salarys] 薪资模块报表构造" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -18,6 +18,7 @@
         <module>ihrm-social-securitys</module>
         <module>ihrm-attendance</module>
         <module>ihrm-salarys</module>
+        <module>ihrm-audit</module>
     </modules>
 
     <packaging>pom</packaging>

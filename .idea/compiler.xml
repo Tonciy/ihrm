@@ -14,6 +14,7 @@
         <module name="ihrm-common-model" />
         <module name="ihrm-social-securitys" />
         <module name="ihrm-eureka" />
+        <module name="ihrm-audit" />
         <module name="ihrm-common" />
         <module name="ihrm-attendance" />
         <module name="ihrm-gateway" />
@@ -23,6 +24,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ihrm-attendance" options="-parameters" />
+      <module name="ihrm-audit" options="-parameters" />
       <module name="ihrm-common" options="-parameters" />
       <module name="ihrm-common-model" options="-parameters" />
       <module name="ihrm-company" options="-parameters" />
