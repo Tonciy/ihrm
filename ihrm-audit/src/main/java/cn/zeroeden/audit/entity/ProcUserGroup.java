@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 /**
  * (DepartmentApprover)实体类
  */
-
 @TableName("proc_user_group")
 @Data
 @AllArgsConstructor
