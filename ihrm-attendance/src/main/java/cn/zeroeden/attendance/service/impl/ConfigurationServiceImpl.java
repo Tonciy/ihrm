@@ -69,27 +69,47 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
     @Override
     public void leaveConfigSaveOrUpdate(LeaveConfig leaveConfig, String userId) {
-
+            // 暂时不确定根据啥来查
     }
 
     @Override
     public void deductionDictSaveOrUpdate(DeductionDict deductionDict, String userId) {
-
+        LambdaQueryWrapper<DeductionDict> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(DeductionDict::getCompanyId, deductionDict.getCompanyId());
+        queryWrapper.eq(DeductionDict::getDepartmentId, deductionDict.getDepartmentId());
+        DeductionDict target = deductionDictDao.selectOne(queryWrapper);
+        if(target == null){
+            // 新增
+            deductionDict.setId(idWorker.nextId() + "");
+            deductionDictDao.insert(deductionDict);
+        }else{
+            // 更新
+            deductionDict.setCompanyId(target.getId());
+            deductionDictDao.updateById(deductionDict);
+        }
     }
 
     @Override
     public void extDutySaveOrUpdate(ExtDutyVO atteExtDutyVO, String userId) {
-
+        // 暂时没看懂
     }
 
     @Override
     public List<LeaveConfig> getLeaveCfg(String companyId, String departmentId) {
-        return null;
+        LambdaQueryWrapper<LeaveConfig> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(LeaveConfig::getCompanyId, companyId);
+        queryWrapper.eq(LeaveConfig::getDepartmentId, departmentId);
+        List<LeaveConfig> list = leaveConfigDao.selectList(queryWrapper);
+        return list;
     }
 
     @Override
     public List<DeductionDict> getDedCfgList(String companyId, String departmentId) {
-        return null;
+        LambdaQueryWrapper<DeductionDict> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(DeductionDict::getCompanyId, companyId);
+        queryWrapper.eq(DeductionDict::getDepartmentId, departmentId);
+        List<DeductionDict> list = deductionDictDao.selectList(queryWrapper);
+        return list;
     }
 
     @Override

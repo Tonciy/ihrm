@@ -3,6 +3,7 @@ package cn.zeroeden.domain.attendance.vo;
 
 import cn.zeroeden.domain.attendance.entity.DayOffConfig;
 import cn.zeroeden.domain.attendance.entity.ExtraDutyRule;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author jingpengfei
  */
 @Data
+@TableName("atte_extra_duty_config")
 public class ExtDutyVO implements Serializable {
 
 
